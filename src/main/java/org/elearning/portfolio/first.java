@@ -4,7 +4,7 @@ import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
 
-public class first {
+public class First {
 
 	public static void main(String[] args) {
 	    JFrame parent = new JFrame();
