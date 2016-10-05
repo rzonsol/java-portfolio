@@ -1,1 +1,0 @@
-insert into USERS (ID, USERS) values (1, 'Axel');
