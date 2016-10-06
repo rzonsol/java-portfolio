@@ -3,7 +3,7 @@
 	xsi:schemaLocation="http://www.springframework.org/schema/beans
 	http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
 
-	<bean id="helloBean" class="org.elearning.portfolio.FirstBean">
+	<bean id="helloBean" class="org.elearning.portfolio.bean.FirstBean">
 	</bean>
 
 </beans>
