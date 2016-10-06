@@ -26,15 +26,12 @@
         </plugins>
     </build>
                 
-       <dependencies>
-
-		<!-- Spring framework -->
+    <dependencies>
 		<dependency>
-			<groupId>org.springframework</groupId>
-			<artifactId>spring</artifactId>
-			<version>2.5.6</version>
+		    <groupId>org.springframework</groupId>
+		    <artifactId>spring-context</artifactId>
+		    <version>4.3.3.RELEASE</version>
 		</dependency>
-
 	</dependencies>
            
 </project>

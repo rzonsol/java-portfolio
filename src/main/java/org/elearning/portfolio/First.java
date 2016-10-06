@@ -2,6 +2,8 @@ package org.elearning.portfolio;
 
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
+
+import org.elearning.portfolio.bean.FirstBean;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
  
