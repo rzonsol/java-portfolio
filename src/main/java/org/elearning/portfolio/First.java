@@ -17,7 +17,7 @@ public class First {
 	    JOptionPane.showMessageDialog(parent, "Hello World");
 	    
 	    context = new ClassPathXmlApplicationContext(
-				"Spring-Module.xml");
+				"spring-module.xml");
 
 		FirstBean obj = (FirstBean) context.getBean("helloBean");
 		obj.exexute();
