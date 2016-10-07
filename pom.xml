@@ -5,7 +5,7 @@
   <version>0.0.1-SNAPSHOT</version>
   <name>Fierst Java Project</name>
   <description>My first project in Java</description>
-      <build>
+  <build>
         <plugins>
             <plugin>
                 <groupId>org.flywaydb</groupId>
@@ -25,4 +25,12 @@
             </plugin>
         </plugins>
     </build>
+                
+    <dependencies>
+	<dependency>
+		<groupId>org.springframework</groupId>
+		<artifactId>spring-context</artifactId>
+		<version>4.3.3.RELEASE</version>
+	</dependency>
+     </dependencies>      
 </project>
