@@ -5,3 +5,8 @@
 .classpath
 .classpath.xml
 /bin/
+.idea
+src/main/main.iml
+/lib/
+/out/
+*.class
