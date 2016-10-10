@@ -1,9 +1,23 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
-	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://www.springframework.org/schema/beans
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
 	http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
 
-	<bean id="helloBean" class="org.elearning.portfolio.bean.FirstBean">
-	</bean>
+    <bean id="helloBean" class="org.elearning.portfolio.bean.FirstBean">
+    </bean>
 
+    <!-- Initialization for data source -->
+    <bean id="dataSource"
+          class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+        <property name="driverClassName" value="org.h2.Driver"/>
+        <property name="url" value="jdbc:h2:file:./target/portfolio-db"/>
+        <property name="username" value="sa"/>
+        <property name="password" value="sa"/>
+    </bean>
+
+    <!-- Definition for studentJDBCTemplate bean -->
+    <bean id="userJDBCTemplate"
+          class="org.elearning.portfolio.UserJDBCTemplate">
+        <property name="dataSource"  ref="dataSource" />
+    </bean>
 </beans>
