@@ -27,8 +27,8 @@ public class MainApp {
 
 
         System.out.println("------Listing Multiple Records--------" );
-        List<Student> students = studentJDBCTemplate.listStudents();
-        for (Student record : students) {
+        List<User> users = studentJDBCTemplate.listStudents();
+        for (User record : users) {
             System.out.print("ID : " + record.getId() );
             System.out.print(", LOGIN : " + record.getLogin() );
             System.out.print(", FIRST_NAME : " + record.getFirstName());

@@ -17,11 +17,11 @@ public class StudentJDBCTemplate implements StudentDAO {
         this.jdbcTemplateObject = new JdbcTemplate(dataSource);
     }
 
-    public List<Student> listStudents() {
+    public List<User> listStudents() {
         String H2 = "SELECT * FROM USERS1 ;";
-        List <Student> students = jdbcTemplateObject.query(H2,
+        List <User> users = jdbcTemplateObject.query(H2,
                 new StudentMapper());
-        return students;
+        return users;
     }
 
 

@@ -7,14 +7,14 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import org.springframework.jdbc.core.RowMapper;
 
-public class StudentMapper implements RowMapper<Student> {
-    public Student mapRow(ResultSet rs, int rowNum) throws SQLException {
-        Student student = new Student();
-        student.setId(rs.getInt("ID"));
-        student.setEmail(rs.getString("EMAIL"));
-        student.setLogin(rs.getString("LOGIN"));
-        student.setFirstName("FIRST_NAME");
-        student.setLastName("LAST_NAME");
-        return student;
+public class StudentMapper implements RowMapper<User> {
+    public User mapRow(ResultSet rs, int rowNum) throws SQLException {
+        User user = new User();
+        user.setId(rs.getInt("ID"));
+        user.setEmail(rs.getString("EMAIL"));
+        user.setLogin(rs.getString("LOGIN"));
+        user.setFirstName("FIRST_NAME");
+        user.setLastName("LAST_NAME");
+        return user;
     }
 }

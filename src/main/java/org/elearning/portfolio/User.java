@@ -3,7 +3,7 @@ package org.elearning.portfolio;
 /**
  * Created by rzonsol on 09.10.2016.
  */
-public class Student {
+public class User {
     private String login;
     private String email;
     private String firstName;

@@ -18,6 +18,6 @@ public interface StudentDAO {
      * This is the method to be used to list down
      * all the records from the Student table.
      */
-    public List<Student> listStudents();
+    public List<User> listStudents();
 
 }
