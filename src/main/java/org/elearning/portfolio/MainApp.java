@@ -7,6 +7,7 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.elearning.portfolio.StudentJDBCTemplate;
 
 
+
 /**
  * Created by rzonsol on 09.10.2016.
  */
@@ -14,9 +15,12 @@ import org.elearning.portfolio.StudentJDBCTemplate;
 
 
 public class MainApp {
+
+    private static ApplicationContext context;
+
     public static void main(String[] args) {
-        ApplicationContext context =
-                new ClassPathXmlApplicationContext("Beans.xml");
+        context = new ClassPathXmlApplicationContext(
+                "spring-module.xml");
 
         StudentJDBCTemplate studentJDBCTemplate =
                 (StudentJDBCTemplate)context.getBean("studentJDBCTemplate");

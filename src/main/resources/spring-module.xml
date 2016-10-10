@@ -5,7 +5,19 @@
 
     <bean id="helloBean" class="org.elearning.portfolio.bean.FirstBean">
     </bean>
-    <bean id="customerDAO" class="org.elearning.portfolio.dao.impl.JdbcCustomerDAO">
+
+    <!-- Initialization for data source -->
+    <bean id="dataSource"
+          class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+        <property name="driverClassName" value="org.h2.Driver"/>
+        <property name="url" value="jdbc:h2:file:./target/portfolio-db"/>
+        <property name="username" value="sa"/>
+        <property name="password" value="sa"/>
     </bean>
 
+    <!-- Definition for studentJDBCTemplate bean -->
+    <bean id="studentJDBCTemplate"
+          class="org.elearning.portfolio.StudentJDBCTemplate">
+        <property name="dataSource"  ref="dataSource" />
+    </bean>
 </beans>

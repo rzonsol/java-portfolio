@@ -18,8 +18,8 @@ public class StudentJDBCTemplate implements StudentDAO {
     }
 
     public List<Student> listStudents() {
-        String SQL = "select * from USERS";
-        List <Student> students = jdbcTemplateObject.query(SQL,
+        String H2 = "SELECT * FROM USERS1 ;";
+        List <Student> students = jdbcTemplateObject.query(H2,
                 new StudentMapper());
         return students;
     }
