@@ -4,38 +4,38 @@ package org.elearning.portfolio;
  * Created by rzonsol on 09.10.2016.
  */
 public class Student {
-    private String Login;
-    private String Email;
-    private String FirstName;
-    private String LastName;
+    private String login;
+    private String email;
+    private String firstName;
+    private String lastName;
     private Integer id;
 
-    public void setLogin(String Login) {
-        this.Login = Login;
+    public void setLogin(String login) {
+        this.login = login;
     }
     public String getLogin() {
-        return Login;
+        return login;
     }
 
-    public void setEmail(String Email) {
-        this.Email = Email;
+    public void setEmail(String email) {
+        this.email = email;
     }
     public String getEmail() {
-        return Email;
+        return email;
     }
 
-    public void setFirstName(String FirstName) {
-        this.FirstName = FirstName;
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
     }
     public String getFirstName() {
-        return FirstName;
+        return firstName;
     }
 
-    public void setLastName(String LastName) {
-        this.LastName = LastName;
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
     }
     public String getLastName() {
-        return LastName;
+        return lastName;
     }
 
     public void setId(Integer id) {
