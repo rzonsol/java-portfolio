@@ -31,6 +31,9 @@ public class MainApp {
         for (Student record : students) {
             System.out.print("ID : " + record.getId() );
             System.out.print(", LOGIN : " + record.getLogin() );
+            System.out.print(", FIRST_NAME : " + record.getFirstName());
+            System.out.print(", LAST_NAME : " + record.getLastName());
+            System.out.print(", LOGIN : " + record.getLogin() );
             System.out.println(", EMAIL : " + record.getEmail());
         }
     }
