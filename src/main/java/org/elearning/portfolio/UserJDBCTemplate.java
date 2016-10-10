@@ -18,7 +18,7 @@ public class UserJDBCTemplate implements UserDAO {
     }
 
     public List<User> listUsers() {
-        String H2 = "SELECT * FROM USERS1 ;";
+        String H2 = "SELECT * FROM USER ;";
         List <User> users = jdbcTemplateObject.query(H2,
                 new UserMapper());
         return users;
