@@ -8,7 +8,7 @@ import org.springframework.jdbc.core.JdbcTemplate;
 /**
  * Created by rzonsol on 09.10.2016.
  */
-public class StudentJDBCTemplate implements UserDAO {
+public class UserJDBCTemplate implements UserDAO {
     private DataSource dataSource;
     private JdbcTemplate jdbcTemplateObject;
 
@@ -20,7 +20,7 @@ public class StudentJDBCTemplate implements UserDAO {
     public List<User> listUsers() {
         String H2 = "SELECT * FROM USERS1 ;";
         List <User> users = jdbcTemplateObject.query(H2,
-                new StudentMapper());
+                new UserMapper());
         return users;
     }
 

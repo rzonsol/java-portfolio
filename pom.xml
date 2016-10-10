@@ -12,7 +12,7 @@
                 <artifactId>exec-maven-plugin</artifactId>
                 <version>1.2.1</version>
                 <configuration>
-                    <mainClass>org.elearning.portfolio.MainApp</mainClass>
+                    <mainClass>org.elearning.portfolio.First</mainClass>
                 </configuration>
             </plugin>
             <plugin>

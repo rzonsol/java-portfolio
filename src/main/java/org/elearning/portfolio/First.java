@@ -1,26 +1,33 @@
 package org.elearning.portfolio;
 
-import javax.swing.JFrame;
-import javax.swing.JOptionPane;
 
-import org.elearning.portfolio.bean.FirstBean;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
- 
+
+import java.util.List;
+
 public class First {
 
 	private static ApplicationContext context;
 
 	public static void main(String[] args) {
-	    JFrame parent = new JFrame();
-
-	    JOptionPane.showMessageDialog(parent, "Hello World");
-	    
-	    context = new ClassPathXmlApplicationContext(
+		context = new ClassPathXmlApplicationContext(
 				"spring-module.xml");
 
-		FirstBean obj = (FirstBean) context.getBean("helloBean");
-		obj.exexute();
+		UserJDBCTemplate userJDBCTemplate =
+				(UserJDBCTemplate)context.getBean("userJDBCTemplate");
+
+
+		System.out.println("------Listing Multiple Records--------" );
+		List<User> users = userJDBCTemplate.listUsers();
+		for (User record : users) {
+			System.out.print("ID : " + record.getId() );
+			System.out.print(", LOGIN : " + record.getLogin() );
+			System.out.print(", FIRST_NAME : " + record.getFirstName());
+			System.out.print(", LAST_NAME : " + record.getLastName());
+			System.out.print(", LOGIN : " + record.getLogin() );
+			System.out.println(", EMAIL : " + record.getEmail());
+		}
 	}
 
 }
