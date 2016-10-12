@@ -3,8 +3,10 @@ package org.elearning.portfolio;
 
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
+import org.elearning.portfolio.user.*;
 
 import java.util.List;
+
 
 public class First {
 

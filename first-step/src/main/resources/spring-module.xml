@@ -17,7 +17,7 @@
 
     <!-- Definition for studentJDBCTemplate bean -->
     <bean id="userDAOImpl"
-          class="org.elearning.portfolio.UserDAOImpl">
+          class="org.elearning.portfolio.user.UserDAOImpl">
         <property name="dataSource"  ref="dataSource" />
     </bean>
 </beans>
