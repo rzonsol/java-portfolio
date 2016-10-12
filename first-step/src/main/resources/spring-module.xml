@@ -15,9 +15,14 @@
         <property name="password" value="sa"/>
     </bean>
 
-    <!-- Definition for studentJDBCTemplate bean -->
+    <!-- Definition for UserDAOImpl bean -->
     <bean id="userDAOImpl"
           class="org.elearning.portfolio.user.UserDAOImpl">
+        <property name="dataSource"  ref="dataSource" />
+    </bean>
+    <!-- Definition for MessageDAOImpl bean -->
+    <bean id="messageDAOImpl"
+          class="org.elearning.portfolio.message.MessageDAOImpl">
         <property name="dataSource"  ref="dataSource" />
     </bean>
 </beans>
