@@ -6,7 +6,7 @@
 .classpath.xml
 /bin/
 .idea
-src/main/main.iml
-/lib/
-/out/
-*.class
+\first-step\target\
+\first-web\target\
+first-web/target/maven-archiver/pom.properties
+first-web/target/first-web-0.0.1-SNAPSHOT.jar
