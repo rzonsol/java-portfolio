@@ -8,7 +8,7 @@ import org.springframework.jdbc.core.JdbcTemplate;
 /**
  * Created by rzonsol on 09.10.2016.
  */
-public class UserJDBCTemplate implements UserDAO {
+public class UserDAOImpl implements UserDAO {
     private DataSource dataSource;
     private JdbcTemplate jdbcTemplateObject;
 

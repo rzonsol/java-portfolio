@@ -14,12 +14,12 @@ public class First {
 		context = new ClassPathXmlApplicationContext(
 				"spring-module.xml");
 
-		UserJDBCTemplate userJDBCTemplate =
-				(UserJDBCTemplate)context.getBean("userJDBCTemplate");
+		UserDAOImpl userDAOImpl =
+				(UserDAOImpl)context.getBean("userDAOImpl");
 
 
 		System.out.println("------Listing Multiple Records--------" );
-		List<User> users = userJDBCTemplate.listUsers();
+		List<User> users = userDAOImpl.listUsers();
 		for (User record : users) {
 			System.out.print("ID : " + record.getId() );
 			System.out.print(", LOGIN : " + record.getLogin() );
