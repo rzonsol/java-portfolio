@@ -6,3 +6,5 @@
 .classpath.xml
 /bin/
 .idea
+\first-step\target\
+\first-web\target\
