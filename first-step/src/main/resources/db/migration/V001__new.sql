@@ -33,3 +33,8 @@ insert into USER ( LOGIN, EMAIL, FIRST_NAME, LAST_NAME) values ('LOGIN2','EMAIL2
 insert into USER ( LOGIN, EMAIL, FIRST_NAME, LAST_NAME) values ('LOGIN3','EMAIL3','NAME3','LASTNAME3');
 insert into USER ( LOGIN, EMAIL, FIRST_NAME, LAST_NAME) values ('LOGIN4','EMAIL4','NAME4','LASTNAME4');
 insert into USER ( LOGIN, EMAIL, FIRST_NAME, LAST_NAME) values ('LOGIN5','EMAIL5','NAME5','LASTNAME5');
+
+
+insert into ROLES(NAME) VALUES ('User');
+insert into ROLES(NAME) VALUES ('Moderator');
+insert into ROLES(NAME) VALUES ('Admin');
