@@ -6,9 +6,12 @@ import javax.sql.DataSource;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.elearning.portfolio.message.*;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 /**
  * Created by rzonsol on 09.10.2016.
  */
+
 public class UserDAOImpl implements UserDAO {
     private DataSource dataSource;
     private JdbcTemplate jdbcTemplateObject;
@@ -31,6 +34,7 @@ public class UserDAOImpl implements UserDAO {
         jdbcTemplateObject.update(sqlCom, login ,email, firstName, lastName);
         return;
     }
+
     public void delUser(Integer id){
         String sqlCom = "DELETE FROM `USER` WHERE ID = ?";
         jdbcTemplateObject.update(sqlCom,id);
