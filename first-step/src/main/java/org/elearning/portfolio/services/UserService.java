@@ -17,9 +17,12 @@ public class UserService{
 
     private  UserDAOImpl user  ;
 
+    public UserService(UserDAOImpl user){
+        this.user = user;
+    }
     public void setUser(UserDAOImpl user){this.user = user;}
 
-    public UserDAOImpl getUser(){return user ;}
+    public List <User>  getUser(Integer userId){return user.getUser(userId) ;}
 
 
     public void addUser(String login,String email, String firstName, String lastName){

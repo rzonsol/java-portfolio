@@ -27,7 +27,7 @@ public class First {
 
 		UserService ser = (UserService)context.getBean("userService");
 
-		List<User> users = userDAOImple.getUsers(); //list of all users
+		List<User> users = ser.getUser(1); //list of all users
 		System.out.println("list of users");
 		for (User e : users){
 			System.out.print("id " + e.getId());
