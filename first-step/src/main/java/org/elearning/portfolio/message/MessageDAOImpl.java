@@ -21,7 +21,7 @@ public class MessageDAOImpl implements MessageDAO {
         return;
     }
 
-    public List<Message> userMessages(Integer userId){
+    public List<Message> getUserMessages(Integer userId){
         String sqlCom = "SELECT * FROM `MESSAGES` WHERE USER_ID = ? ;";
         List <Message> messages = jdbcTemplateObject.query(sqlCom,
                 new Object[]{userId}, new MessageMapper());
@@ -43,7 +43,7 @@ public class MessageDAOImpl implements MessageDAO {
     }
 
 
-    public List<Message> listMessage(){
+    public List<Message> getMessages(){
         String sqlCom = "SELECT * FROM MESSAGES ;";
         List <Message> messages = jdbcTemplateObject.query(sqlCom,
                 new MessageMapper());

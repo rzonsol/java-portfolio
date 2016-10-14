@@ -14,12 +14,25 @@ public class First {
 	private static ApplicationContext context;
 
 	public static void main(String[] args) {
+		System.out.println("jaslfhkasdjn");
+
 		context = new ClassPathXmlApplicationContext(
 				"spring-module.xml");
 
 
+		UserDAOImpl userDAOImple =
+				(UserDAOImpl)context.getBean("userDAOImpl");
 
-// testing data
+
+		List<User> users = userDAOImple.getUsers(); //list of all users
+		System.out.println("list of users");
+		for (User e : users){
+			System.out.print("id " + e.getId());
+			System.out.print(", login " + e.getLogin());
+			System.out.print(", email " + e.getEmail());
+			System.out.print(", firstName " + e.getFirstName());
+			System.out.println(", lastName " + e.getLastName());
+		}
 
 	}
 
