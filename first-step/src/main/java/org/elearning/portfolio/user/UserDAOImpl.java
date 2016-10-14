@@ -13,7 +13,7 @@ public class UserDAOImpl implements UserDAO {
     private DataSource dataSource;
     private JdbcTemplate jdbcTemplateObject;
 
-    public List <User>  getUserData(Integer userId){
+    public List <User> getUser(Integer userId){
         String sqlCom = "SELECT * FROM `USER` WHERE ID = ? ";
         List <User> users = jdbcTemplateObject.query(sqlCom,
                 new Object[]{userId}, new UserMapper());
@@ -36,27 +36,27 @@ public class UserDAOImpl implements UserDAO {
         jdbcTemplateObject.update(sqlCom,id);
     }
 
-    public List<Message> userMessages(Integer userId) {
+    public List<Message> getMessagesByUserId(Integer userId) {
         String sqlCom = "SELECT * FROM `MESSAGES` WHERE USER_ID = ? ;";
         List<Message> messages = jdbcTemplateObject.query(sqlCom,
                 new Object[]{userId}, new MessageMapper());
         return messages;
     }
 
-    public void addRoleToUser(Integer userId, Integer roleId){
+    public void addUserRole(Integer userId, Integer roleId){
         String sqlCom ="INSERT INTO `USER_ROLES` (USER_ID, ROLE_ID) VALUES (?,?)";
         jdbcTemplateObject.update(sqlCom, userId ,roleId);
         return;
     }
 
-    public List<User> listUsers() {
+    public List<User> getUsers() {
         String sqlCon = "SELECT * FROM USER ;";
         List <User> users = jdbcTemplateObject.query(sqlCon,
                 new UserMapper());
         return users;
     }
 
-    public List<Role> userRoles(Integer userId){
+    public List<Role> getUserRoles(Integer userId){
         String sqlCom = "SELECT DISTINCT USER_ROLES.ROLE_ID, ROLES.NAME FROM ROLES LEFT JOIN USER_ROLES ON ROLES.ID=USER_ROLES.ROLE_ID WHERE USER_ROLES.USER_ID = ?;";
         List<Role> roles = jdbcTemplateObject.query(sqlCom,
                 new Object[]{userId}, new RoleMapper());

@@ -14,7 +14,7 @@ public interface UserDAO {
      * This is the method to be used to get
      * data of user from USER table.
      */
-    public List <User> getUserData(Integer id);
+    public List <User> getUser(Integer id);
     /**
      * This is the method to be used to create
      * new user in the USER table.
@@ -32,22 +32,22 @@ public interface UserDAO {
      * add role to User
      */
 
-    public void addRoleToUser(Integer userId, Integer roleId);
+    public void addUserRole(Integer userId, Integer roleId);
 
     /**
      * This is the method to be used to
      * get all message of user_id
      */
-    public List<Message> userMessages(Integer userId);
+    public List<Message> getMessagesByUserId(Integer userId);
 
      /**
      * This is the method to be used to list down
      * all the records from the MESSAGES table.
      */
-    public List<User> listUsers();
+    public List<User> getUsers();
     /**
      * This is the method to be used to list down
      * all the roles of user.
      */
-    public List<Role> userRoles(Integer userId);
+    public List<Role> getUserRoles(Integer userId);
 }

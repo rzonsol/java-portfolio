@@ -14,7 +14,7 @@ public interface MessageDAO {
      * This is the method to be used to
      * get all message of user_id
      */
-    public List<Message> userMessages(Integer userId);
+    public List<Message> getUserMessages(Integer userId);
 
     /**
      * This is the method to be used to
@@ -34,6 +34,6 @@ public interface MessageDAO {
      * This is the method to be used to list down
      * all the records from the messages table.
      */
-    public List<Message> listMessage();
+    public List<Message> getMessages();
 
 }
