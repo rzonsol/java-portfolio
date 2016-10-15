@@ -22,7 +22,7 @@ public class First {
 				"spring-module.xml");
 
 
-		UserDAOImpl userDAOImple = UserDAOImpl)context.getBean("userDAOImpl");
+		UserDAOImpl userDAOImple = (UserDAOImpl)context.getBean("userDAOImpl");
 
 		UserService ser = (UserService)context.getBean("userService");
 
