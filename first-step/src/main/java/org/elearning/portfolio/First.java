@@ -22,21 +22,11 @@ public class First {
 				"spring-module.xml");
 
 
-		UserDAOImpl userDAOImple =
-				(UserDAOImpl)context.getBean("userDAOImpl");
+		UserDAOImpl userDAOImple = UserDAOImpl)context.getBean("userDAOImpl");
 
 		UserService ser = (UserService)context.getBean("userService");
 
-		List<User> users = ser.getUser(1); //list of all users
-		System.out.println("list of users");
-		for (User e : users){
-			System.out.print("id " + e.getId());
-			System.out.print(", login " + e.getLogin());
-			System.out.print(", email " + e.getEmail());
-			System.out.print(", firstName " + e.getFirstName());
-			System.out.println(", lastName " + e.getLastName());
-		}
-
+		MessageService messag = (MessageService)context.getBean("messageService");
 	}
 
 }

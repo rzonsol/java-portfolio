@@ -20,6 +20,7 @@ public class UserService{
     public UserService(UserDAOImpl user){
         this.user = user;
     }
+
     public void setUser(UserDAOImpl user){this.user = user;}
 
     public List <User>  getUser(Integer userId){return user.getUser(userId) ;}
