@@ -34,13 +34,7 @@ public class MessageDAOImpl implements MessageDAO {
         return;
     }
 
-    public Integer countMessages(Integer userId){
 
-        String sqlCom = "SELECT COUNT(`USER_ID`) FROM MESSAGES WHERE `USER_ID`=?";
-        Integer numberMesseges = jdbcTemplateObject.queryForObject(sqlCom,
-                new Object[] {userId}, Integer.class);
-        return (numberMesseges != null ? numberMesseges.intValue() : 0);
-    }
 
 
     public List<Message> getMessages(){

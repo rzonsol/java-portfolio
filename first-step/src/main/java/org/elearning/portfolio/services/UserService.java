@@ -9,15 +9,15 @@ import org.elearning.portfolio.message.*;
 
 public class UserService{
 
-    private  UserDAOImpl user  ;
+    private  UserDAO user  ;
 
-    public UserService(UserDAOImpl user){
+    public UserService(UserDAO user){
         this.user = user;
     }
 
-    public void setUser(UserDAOImpl user){this.user = user;}
+    public void setUser(UserDAO user){this.user = user;}
 
-    public List <User>  getUser(Integer userId){return user.getUser(userId) ;}
+    public User getUser(Integer userId){return user.getUser(userId) ;}
 
 
     public void addUser(String login,String email, String firstName, String lastName){

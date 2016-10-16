@@ -24,7 +24,7 @@
                 <artifactId>flyway-maven-plugin</artifactId>
                 <version>4.0.3</version>
                 <configuration>
-                    <url>jdbc:h2:file:./first-step/target/portfolio-db/portfolio-db</url>
+                    <url>jdbc:h2:file:./first-step/target/portfolio-db</url>
                     <user>sa</user>
                     <password>sa</password>
                     <encoding>UTF-8</encoding>

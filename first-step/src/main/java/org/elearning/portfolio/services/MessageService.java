@@ -6,9 +6,9 @@ import org.elearning.portfolio.message.*;
 
 
 public class MessageService{
-    private MessageDAOImpl message;
+    private MessageDAO message;
 
-    public MessageService(MessageDAOImpl message){
+    public MessageService(MessageDAO message){
         this.message= message;
     }
 
@@ -23,8 +23,9 @@ public class MessageService{
         message.delMessage(id);
     }
     public Integer countMessages(Integer userId){
-        return message.countMessages(userId);
+        return message.getUserMessages(userId).size();
     }
+
     public List<Message> getMessages(){
         return message.getMessages();
     }

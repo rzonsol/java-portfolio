@@ -16,17 +16,19 @@ public class First {
 	private static ApplicationContext context;
 
 	public static void main(String[] args) {
-		System.out.println("jaslfhkasdjn");
+
 
 		context = new ClassPathXmlApplicationContext(
 				"spring-module.xml");
 
 
-		UserDAOImpl userDAOImple = (UserDAOImpl)context.getBean("userDAOImpl");
+
 
 		UserService ser = (UserService)context.getBean("userService");
 
 		MessageService messag = (MessageService)context.getBean("messageService");
+
+
 	}
 
 }
