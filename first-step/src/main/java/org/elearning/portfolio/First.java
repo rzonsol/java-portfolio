@@ -1,33 +1,34 @@
 package org.elearning.portfolio;
 
 
+import org.springframework.beans.factory.BeanFactory;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
+import org.elearning.portfolio.user.*;
+import org.elearning.portfolio.message.*;
+import org.elearning.portfolio.services.*;
 
 import java.util.List;
+
 
 public class First {
 
 	private static ApplicationContext context;
 
 	public static void main(String[] args) {
+
+
 		context = new ClassPathXmlApplicationContext(
 				"spring-module.xml");
 
-		UserJDBCTemplate userJDBCTemplate =
-				(UserJDBCTemplate)context.getBean("userJDBCTemplate");
 
 
-		System.out.println("------Listing Multiple Records--------" );
-		List<User> users = userJDBCTemplate.listUsers();
-		for (User record : users) {
-			System.out.print("ID : " + record.getId() );
-			System.out.print(", LOGIN : " + record.getLogin() );
-			System.out.print(", FIRST_NAME : " + record.getFirstName());
-			System.out.print(", LAST_NAME : " + record.getLastName());
-			System.out.print(", LOGIN : " + record.getLogin() );
-			System.out.println(", EMAIL : " + record.getEmail());
-		}
+
+		UserService ser = (UserService)context.getBean("userService");
+
+		MessageService messag = (MessageService)context.getBean("messageService");
+
+
 	}
 
 }

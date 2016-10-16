@@ -1,4 +1,4 @@
-package org.elearning.portfolio;
+package org.elearning.portfolio.user;
 
 /**
  * Created by rzonsol on 09.10.2016.
