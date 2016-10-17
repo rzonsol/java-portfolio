@@ -10,6 +10,7 @@
     <modules>
         <module>first-step</module>
         <module>first-web</module>
+        <module>firs-step-spring-autowired</module>
     </modules>
   <build>
         <plugins>
