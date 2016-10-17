@@ -3,8 +3,10 @@ package org.elearning.portfolio.user;
 
 import java.util.List;
 import javax.sql.DataSource;
+import javax.annotation.PostConstruct;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.elearning.portfolio.message.*;
 
 
@@ -14,8 +16,14 @@ import org.elearning.portfolio.message.*;
  */
 @Repository
 public class UserDAOImpl implements UserDAO {
+    @Autowired
     private DataSource dataSource;
     private JdbcTemplate jdbcTemplateObject;
+
+    @PostConstruct
+    private void initialize() {
+        setDataSource(dataSource);
+    }
 
     public User  getUser(Integer userId){
         String sqlCom = "SELECT * FROM `USER` WHERE ID = ? ";
