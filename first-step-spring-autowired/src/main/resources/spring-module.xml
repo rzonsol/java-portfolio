@@ -22,11 +22,6 @@
     </bean>
 
 
-    <!-- Definition for UserDAOImpl bean -->
-    <bean id="userDAOImpl"
-          class="org.elearning.portfolio.user.UserDAOImpl">
-        <property name="dataSource"  ref="dataSource" />
-    </bean>
 
 
 </beans>
