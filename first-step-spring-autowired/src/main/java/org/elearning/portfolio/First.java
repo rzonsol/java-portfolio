@@ -28,6 +28,18 @@ public class First {
 		MessageService messag = (MessageService)context.getBean("messageService");
 
 
+
+		List<User> users = ser.getUsers(); //list of all users
+
+		System.out.println("list of users");
+		for (User e : users){
+			System.out.print("id " + e.getId());
+			System.out.print(", login " + e.getLogin());
+			System.out.print(", email " + e.getEmail());
+			System.out.print(", firstName " + e.getFirstName());
+			System.out.println(", lastName " + e.getLastName());
+		}
+
 	}
 
 }
