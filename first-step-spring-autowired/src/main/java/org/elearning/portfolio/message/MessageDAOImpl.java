@@ -4,7 +4,9 @@ package org.elearning.portfolio.message;
 import java.util.List;
 import javax.sql.DataSource;
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.stereotype.Repository;
 
+@Repository
 public class MessageDAOImpl implements MessageDAO {
 
     private DataSource dataSource;

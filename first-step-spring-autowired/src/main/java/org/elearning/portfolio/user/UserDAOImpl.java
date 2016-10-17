@@ -4,13 +4,15 @@ package org.elearning.portfolio.user;
 import java.util.List;
 import javax.sql.DataSource;
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.stereotype.Repository;
 import org.elearning.portfolio.message.*;
+
 
 
 /**
  * Created by rzonsol on 09.10.2016.
  */
-
+@Repository
 public class UserDAOImpl implements UserDAO {
     private DataSource dataSource;
     private JdbcTemplate jdbcTemplateObject;

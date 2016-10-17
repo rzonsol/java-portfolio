@@ -5,6 +5,12 @@
 	http://www.springframework.org/schema/beans/spring-beans-2.5.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
 
 
+    <!--&lt;!&ndash;annotation references  &ndash;&gt;-->
+    <context:component-scan base-package="org.elearning.portfolio.services" />
+    <context:component-scan base-package="org.elearning.portfolio.user" />
+    <context:component-scan base-package="org.elearning.portfolio.message" />
+    <context:annotation-config />
+
 
     <!-- Initialization for data source -->
     <bean id="dataSource"
@@ -15,25 +21,12 @@
         <property name="password" value="sa"/>
     </bean>
 
+
     <!-- Definition for UserDAOImpl bean -->
     <bean id="userDAOImpl"
           class="org.elearning.portfolio.user.UserDAOImpl">
         <property name="dataSource"  ref="dataSource" />
     </bean>
-    <!-- Definition for MessageDAOImpl bean -->
-    <bean id="messageDAOImpl"
-          class="org.elearning.portfolio.message.MessageDAOImpl">
-        <property name="dataSource"  ref="dataSource" />
-    </bean>
-
-    <bean id="userService" class="org.elearning.portfolio.services.UserService">
-        <constructor-arg ref="userDAOImpl" />
-    </bean>
-
-    <bean id="messageService" class="org.elearning.portfolio.services.MessageService">
-        <constructor-arg ref="messageDAOImpl" />
-    </bean>
-
 
 
 </beans>
