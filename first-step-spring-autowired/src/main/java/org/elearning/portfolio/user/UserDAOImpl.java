@@ -16,14 +16,10 @@ import org.elearning.portfolio.message.*;
  */
 @Repository
 public class UserDAOImpl implements UserDAO {
-    @Autowired
+
     private DataSource dataSource;
     private JdbcTemplate jdbcTemplateObject;
 
-    @PostConstruct
-    private void initialize() {
-        setDataSource(dataSource);
-    }
 
     public User  getUser(Integer userId){
         String sqlCom = "SELECT * FROM `USER` WHERE ID = ? ";
@@ -32,7 +28,7 @@ public class UserDAOImpl implements UserDAO {
 
         return users.get(0);
     }
-
+    @Autowired
     public void setDataSource(DataSource dataSource) {
         this.dataSource = dataSource;
         this.jdbcTemplateObject = new JdbcTemplate(dataSource);

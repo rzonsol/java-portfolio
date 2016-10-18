@@ -10,15 +10,11 @@ import javax.annotation.PostConstruct;
 
 @Repository
 public class MessageDAOImpl implements MessageDAO {
-    @Autowired
+
     private DataSource dataSource;
     private JdbcTemplate jdbcTemplateObject;
 
-    @PostConstruct
-    private void initialize() {
-        setDataSource(dataSource);
-    }
-
+    @Autowired
     public void setDataSource(DataSource dataSource) {
         this.dataSource = dataSource;
         this.jdbcTemplateObject = new JdbcTemplate(dataSource);
