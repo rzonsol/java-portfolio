@@ -5,12 +5,19 @@ import java.util.List;
 import javax.sql.DataSource;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
+import org.springframework.beans.factory.annotation.Autowired;
+import javax.annotation.PostConstruct;
 
 @Repository
 public class MessageDAOImpl implements MessageDAO {
-
+    @Autowired
     private DataSource dataSource;
     private JdbcTemplate jdbcTemplateObject;
+
+    @PostConstruct
+    private void initialize() {
+        setDataSource(dataSource);
+    }
 
     public void setDataSource(DataSource dataSource) {
         this.dataSource = dataSource;

@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service;
 import org.elearning.portfolio.user.*;
 import org.elearning.portfolio.message.*;
 
-@Service("userService")
+@Service
 public class UserService{
 
     @Autowired

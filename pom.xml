@@ -10,7 +10,7 @@
     <modules>
         <module>first-step</module>
         <module>first-web</module>
-        <module>firs-step-spring-autowired</module>
+        <module>first-step-spring-autowired</module>
     </modules>
   <build>
         <plugins>
@@ -19,7 +19,7 @@
                 <artifactId>exec-maven-plugin</artifactId>
                 <version>1.2.1</version>
                 <configuration>
-                    <mainClass>org.elearning.portfolio.First</mainClass>
+                    <mainClass>org.elearning.portfolio.first-step-spring-autowired.First</mainClass>
                 </configuration>
             </plugin>
         </plugins>
