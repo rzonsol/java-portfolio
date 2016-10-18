@@ -5,7 +5,7 @@
         <artifactId>first-java-project</artifactId>
         <version>0.0.1-SNAPSHOT</version>
     </parent>
-    <artifactId>first-step-spring-autowierd</artifactId>
+    <artifactId>first-step-spring-autowired</artifactId>
     <packaging>jar</packaging>
     <name>Fierst Java Project</name>
   <description>My first project in Java</description>

@@ -6,7 +6,7 @@ import javax.sql.DataSource;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 import org.springframework.beans.factory.annotation.Autowired;
-import javax.annotation.PostConstruct;
+
 
 @Repository
 public class MessageDAOImpl implements MessageDAO {
