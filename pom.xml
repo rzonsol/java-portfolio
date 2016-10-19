@@ -11,6 +11,7 @@
         <module>first-step</module>
         <module>first-web</module>
         <module>first-step-spring-autowired</module>
+        <module>first-step-spring-class-config</module>
     </modules>
 
     <dependencies>
