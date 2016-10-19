@@ -20,12 +20,10 @@ public class UserDAOImpl implements UserDAO {
     private DataSource dataSource;
     private JdbcTemplate jdbcTemplateObject;
 
-
     public User  getUser(Integer userId){
         String sqlCom = "SELECT * FROM `USER` WHERE ID = ? ";
         List <User> users = jdbcTemplateObject.query(sqlCom,
                 new Object[]{userId}, new UserMapper());
-
         return users.get(0);
     }
     @Autowired

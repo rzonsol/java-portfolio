@@ -8,6 +8,7 @@ import org.elearning.portfolio.message.*;
 
 @Service
 public class MessageService{
+
     @Autowired
     private MessageDAO message;
 
