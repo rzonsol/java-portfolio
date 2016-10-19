@@ -8,6 +8,7 @@ import org.elearning.portfolio.message.*;
 
 
 public class MessageService{
+
     @Autowired
     private MessageDAO message;
 
@@ -22,9 +23,11 @@ public class MessageService{
     public List <Message>  getUserMessages(Integer userId){
         return message.getUserMessages(userId);
     }
+
     public void delMessage(Integer id){
         message.delMessage(id);
     }
+
     public Integer countMessages(Integer userId){
         return message.getUserMessages(userId).size();
     }

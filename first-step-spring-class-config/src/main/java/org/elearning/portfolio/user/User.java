@@ -4,6 +4,7 @@ package org.elearning.portfolio.user;
  * Created by rzonsol on 09.10.2016.
  */
 public class User {
+
     private String login;
     private String email;
     private String firstName;
@@ -13,6 +14,7 @@ public class User {
     public void setLogin(String login) {
         this.login = login;
     }
+
     public String getLogin() {
         return login;
     }
@@ -20,6 +22,7 @@ public class User {
     public void setEmail(String email) {
         this.email = email;
     }
+
     public String getEmail() {
         return email;
     }
@@ -27,6 +30,7 @@ public class User {
     public void setFirstName(String firstName) {
         this.firstName = firstName;
     }
+
     public String getFirstName() {
         return firstName;
     }
@@ -34,6 +38,7 @@ public class User {
     public void setLastName(String lastName) {
         this.lastName = lastName;
     }
+
     public String getLastName() {
         return lastName;
     }
@@ -41,6 +46,7 @@ public class User {
     public void setId(Integer id) {
         this.id = id;
     }
+
     public Integer getId() {
         return id;
     }

@@ -29,6 +29,7 @@ public class UserDAOImpl implements UserDAO {
 
         return users.get(0);
     }
+
     @Autowired
     public void setDataSource(CreateDataSourceForJdbcTemplate dataSource) {
         this.dataSource = dataSource.getDataSource();

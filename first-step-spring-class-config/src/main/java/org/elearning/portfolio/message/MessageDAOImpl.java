@@ -40,9 +40,6 @@ public class MessageDAOImpl implements MessageDAO {
         return;
     }
 
-
-
-
     public List<Message> getMessages(){
         String sqlCom = "SELECT * FROM MESSAGES ;";
         List <Message> messages = jdbcTemplateObject.query(sqlCom,
