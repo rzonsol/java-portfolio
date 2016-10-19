@@ -22,7 +22,6 @@ public class UserService{
 
     public User getUser(Integer userId){return user.getUser(userId) ;}
 
-
     public void addUser(String login,String email, String firstName, String lastName){
         user.addUser(login, email, firstName, lastName);
     }
