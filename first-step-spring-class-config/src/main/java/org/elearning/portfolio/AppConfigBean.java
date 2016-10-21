@@ -24,7 +24,7 @@ public class AppConfigBean{
     }
     @Bean
     public UserService userService(){
-        return new UserService(userDAO());
+        return new UserService();
     }
     @Bean
     public MessageDAO messageDAO(){
@@ -32,7 +32,7 @@ public class AppConfigBean{
     }
     @Bean
     public MessageService messageService(){
-        return new MessageService(messageDAO());
+        return new MessageService();
     }
 
 

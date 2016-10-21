@@ -12,7 +12,7 @@ public class MessageService{
     @Autowired
     private MessageDAO messageDao;
 
-    public MessageService(MessageDAO messageDao){
+    public MessageService(){
         this.messageDao= messageDao;
     }
 
