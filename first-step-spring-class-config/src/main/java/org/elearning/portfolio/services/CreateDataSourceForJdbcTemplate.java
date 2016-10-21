@@ -1,4 +1,4 @@
-package org.elearning.portfolio;
+package org.elearning.portfolio.services;
 
 import javax.sql.DataSource;
 

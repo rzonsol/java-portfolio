@@ -4,6 +4,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
 import javax.sql.DataSource;
+import org.elearning.portfolio.services.CreateDataSourceForJdbcTemplate;
 import org.elearning.portfolio.user.UserDAOImpl;
 import org.elearning.portfolio.services.UserService;
 import org.elearning.portfolio.message.MessageDAOImpl;
