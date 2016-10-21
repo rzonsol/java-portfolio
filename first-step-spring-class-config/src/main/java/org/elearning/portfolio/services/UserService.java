@@ -12,37 +12,37 @@ import org.elearning.portfolio.message.*;
 public class UserService{
 
     @Autowired
-    private  UserDAO user  ;
+    private  UserDAO userDao  ;
 
-    public UserService(UserDAO user){
-        this.user = user;
+    public UserService(UserDAO userDao){
+        this.userDao = userDao;
     }
 
-    public void setUser(UserDAO user){this.user = user;}
+    public void setUser(UserDAO userDao){this.userDao = userDao;}
 
-    public User getUser(Integer userId){return user.getUser(userId) ;}
+    public User getUser(Integer userId){return userDao.getUser(userId) ;}
 
     public void addUser(String login,String email, String firstName, String lastName){
-        user.addUser(login, email, firstName, lastName);
+        userDao.addUser(login, email, firstName, lastName);
     }
 
     public void delUser(Integer id){
-        user.delUser(id);
+        userDao.delUser(id);
     }
 
     public List<Message> getMessagesByUserId(Integer userId){
-        return user.getMessagesByUserId(userId);
+        return userDao.getMessagesByUserId(userId);
     }
 
     public void addUserRole(Integer userId, Integer roleId) {
-        user.addUserRole(userId, roleId);
+        userDao.addUserRole(userId, roleId);
     }
 
     public List<User> getUsers(){
-        return user.getUsers();
+        return userDao.getUsers();
     }
 
     public List<Role> getUserRoles(Integer userId) {
-        return user.getUserRoles(userId);
+        return userDao.getUserRoles(userId);
     }
 }
