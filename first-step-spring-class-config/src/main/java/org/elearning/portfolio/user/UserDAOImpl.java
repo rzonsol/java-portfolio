@@ -8,7 +8,7 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.elearning.portfolio.message.*;
-import org.elearning.portfolio.CreateDataSourceForJdbcTemplate;
+import org.elearning.portfolio.services.CreateDataSourceForJdbcTemplate;
 
 
 
