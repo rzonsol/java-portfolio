@@ -5,9 +5,9 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
 import javax.sql.DataSource;
 import org.elearning.portfolio.services.CreateDataSourceForJdbcTemplate;
-import org.elearning.portfolio.user.UserDAOImpl;
+import org.elearning.portfolio.user.*;
 import org.elearning.portfolio.services.UserService;
-import org.elearning.portfolio.message.MessageDAOImpl;
+import org.elearning.portfolio.message.*;
 import org.elearning.portfolio.services.MessageService;
 
 
@@ -19,15 +19,15 @@ public class AppConfigBean{
         return new CreateDataSourceForJdbcTemplate();
     }
     @Bean
-    public UserDAOImpl userDAOImpl(){
+    public UserDAO userDAO(){
         return new UserDAOImpl();
     }
     @Bean
     public UserService userService(){
-        return new UserService(userDAOImpl());
+        return new UserService(userDAO());
     }
     @Bean
-    public MessageDAOImpl messageDAO(){
+    public MessageDAO messageDAO(){
         return new MessageDAOImpl();
     }
     @Bean
