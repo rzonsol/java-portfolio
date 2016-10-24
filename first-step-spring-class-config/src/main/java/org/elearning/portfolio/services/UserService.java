@@ -19,9 +19,7 @@ public class UserService{
 
     public User getUser(Integer userId){return userDao.getUser(userId) ;}
 
-    public void addUser(String login,String email, String firstName, String lastName){
-        userDao.addUser(login, email, firstName, lastName);
-    }
+    public void addUser(String login,String email, String firstName, String lastName){userDao.addUser(login, email, firstName, lastName);}
 
     public void delUser(Integer id){
         userDao.delUser(id);

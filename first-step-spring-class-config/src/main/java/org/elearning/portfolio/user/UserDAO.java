@@ -6,9 +6,6 @@ import javax.sql.DataSource;
 import org.elearning.portfolio.message.*;
 
 
-/**
- * Created by rzonsol on 09.10.2016.
- */
 public interface UserDAO {
 
     public User getUser(Integer id);
