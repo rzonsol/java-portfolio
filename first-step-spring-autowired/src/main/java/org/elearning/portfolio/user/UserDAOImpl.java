@@ -11,6 +11,7 @@ import org.elearning.portfolio.message.*;
 
 
 
+
 /**
  * Created by rzonsol on 09.10.2016.
  */
@@ -69,7 +70,4 @@ public class UserDAOImpl implements UserDAO {
                 new Object[]{userId}, new RoleMapper());
         return roles;
     }
-
-
-
 }

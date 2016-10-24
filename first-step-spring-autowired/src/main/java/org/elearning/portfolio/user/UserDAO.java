@@ -23,4 +23,5 @@ public interface UserDAO {
     public List<User> getUsers();
  
     public List<Role> getUserRoles(Integer userId);
+
 }
