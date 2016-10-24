@@ -12,9 +12,6 @@ public class MessageService{
     @Autowired
     private MessageDAO messageDao;
 
-    public MessageService(){
-        this.messageDao= messageDao;
-    }
 
     public void createMessage(Integer userId, String title, String content){
         messageDao.createMessage(userId, title, content);
