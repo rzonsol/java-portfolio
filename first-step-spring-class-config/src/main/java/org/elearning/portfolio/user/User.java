@@ -1,8 +1,6 @@
 package org.elearning.portfolio.user;
 
-/**
- * Created by rzonsol on 09.10.2016.
- */
+
 public class User {
 
     private String login;

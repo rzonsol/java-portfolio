@@ -11,6 +11,7 @@ import org.elearning.portfolio.message.*;
 
 
 
+
 /**
  * Created by rzonsol on 09.10.2016.
  */
@@ -20,12 +21,10 @@ public class UserDAOImpl implements UserDAO {
     private DataSource dataSource;
     private JdbcTemplate jdbcTemplateObject;
 
-
     public User  getUser(Integer userId){
         String sqlCom = "SELECT * FROM `USER` WHERE ID = ? ";
         List <User> users = jdbcTemplateObject.query(sqlCom,
                 new Object[]{userId}, new UserMapper());
-
         return users.get(0);
     }
     @Autowired
@@ -71,7 +70,4 @@ public class UserDAOImpl implements UserDAO {
                 new Object[]{userId}, new RoleMapper());
         return roles;
     }
-
-
-
 }

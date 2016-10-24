@@ -1,6 +1,5 @@
 package org.elearning.portfolio.user;
 
-
 import java.util.List;
 import javax.sql.DataSource;
 import org.elearning.portfolio.message.*;
@@ -24,4 +23,5 @@ public interface UserDAO {
     public List<User> getUsers();
  
     public List<Role> getUserRoles(Integer userId);
+
 }

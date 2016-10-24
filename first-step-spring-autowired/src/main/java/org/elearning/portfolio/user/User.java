@@ -4,6 +4,7 @@ package org.elearning.portfolio.user;
  * Created by rzonsol on 09.10.2016.
  */
 public class User {
+
     private String login;
     private String email;
     private String firstName;
@@ -44,4 +45,6 @@ public class User {
     public Integer getId() {
         return id;
     }
+
+    public String getFullName(){return this.firstName +" "+ this.lastName;}
 }

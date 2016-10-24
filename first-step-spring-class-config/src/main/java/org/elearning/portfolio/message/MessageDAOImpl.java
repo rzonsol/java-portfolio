@@ -6,7 +6,7 @@ import javax.sql.DataSource;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.elearning.portfolio.services.CreateDataSourceForJdbcTemplate;
+
 
 
 
@@ -16,9 +16,8 @@ public class MessageDAOImpl implements MessageDAO {
     private JdbcTemplate jdbcTemplateObject;
 
     @Autowired
-    public void setDataSource(CreateDataSourceForJdbcTemplate dataSource) {
-        this.dataSource = dataSource.getDataSource();
-        this.jdbcTemplateObject = new JdbcTemplate(this.dataSource);
+    public void setDataSource(DataSource dataSource) {
+        this.jdbcTemplateObject = new JdbcTemplate(dataSource);
     }
 
     public void createMessage(Integer userId, String title, String content){
