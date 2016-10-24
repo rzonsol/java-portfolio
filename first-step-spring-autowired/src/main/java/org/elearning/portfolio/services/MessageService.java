@@ -16,16 +16,16 @@ public class MessageService{
         this.message= message;
     }
 
-    public void createMessage(Integer userId, String title, String content){
-        message.createMessage(userId, title, content);
-    }
+    public void createMessage(Integer userId, String title, String content){message.createMessage(userId, title, content); }
 
     public List <Message>  getUserMessages(Integer userId){
         return message.getUserMessages(userId);
     }
+
     public void delMessage(Integer id){
         message.delMessage(id);
     }
+
     public Integer countMessages(Integer userId){
         return message.getUserMessages(userId).size();
     }

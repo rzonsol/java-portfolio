@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 import org.elearning.portfolio.user.*;
 import org.elearning.portfolio.message.*;
 
+
 @Service
 public class UserService{
 
@@ -23,9 +24,7 @@ public class UserService{
     public User getUser(Integer userId){return user.getUser(userId) ;}
 
 
-    public void addUser(String login,String email, String firstName, String lastName){
-        user.addUser(login, email, firstName, lastName);
-    }
+    public void addUser(String login,String email, String firstName, String lastName){user.addUser(login, email, firstName, lastName);}
 
     public void delUser(Integer id){
         user.delUser(id);
