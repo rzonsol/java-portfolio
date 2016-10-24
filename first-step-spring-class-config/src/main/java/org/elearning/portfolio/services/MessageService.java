@@ -16,9 +16,7 @@ public class MessageService{
         this.messageDao= messageDao;
     }
 
-    public void createMessage(Integer userId, String title, String content){
-        messageDao.createMessage(userId, title, content);
-    }
+    public void createMessage(Integer userId, String title, String content){messageDao.createMessage(userId, title, content);}
 
     public List <Message>  getUserMessages(Integer userId){
         return messageDao.getUserMessages(userId);
