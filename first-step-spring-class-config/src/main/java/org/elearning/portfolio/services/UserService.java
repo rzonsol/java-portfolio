@@ -14,11 +14,8 @@ public class UserService{
     @Autowired
     private  UserDAO userDao  ;
 
-    public UserService(){
-        this.userDao = userDao;
-    }
 
-    public void setUser(UserDAO userDao){this.userDao = userDao;}
+
 
     public User getUser(Integer userId){return userDao.getUser(userId) ;}
 
