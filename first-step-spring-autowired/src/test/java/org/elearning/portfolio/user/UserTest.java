@@ -10,7 +10,7 @@ public class UserTest {
     private  User user = new User();
 
     @Test
-    public void userFullNameTest() {
+    public void shouldReturnFullName() {
         user.setFirstName("Piotr");
         user.setLastName("Rzonsowski");
         Assert.assertEquals("it ought to be: Piotr Rzonsowski", "Piotr Rzonsowski", user.getFullName());
