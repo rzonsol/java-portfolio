@@ -36,8 +36,8 @@ public class MessageService{
     }
 
     public List<Message> getMessagesWithStringInTitle(String lookFor){
-        List<Message> messages = getMessages();
-        List<Message> messagesWithString = new ArrayList<Message>();;
+        List<Message> messages = messageDao.getMessages();
+        List<Message> messagesWithString = new ArrayList<Message>();
         for (Message e : messages){
             String title = e.getTitle();
             if(title.toLowerCase().contains(lookFor.toLowerCase())){
