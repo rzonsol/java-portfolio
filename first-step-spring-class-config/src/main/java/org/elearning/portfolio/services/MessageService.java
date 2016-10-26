@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.elearning.portfolio.user.*;
 import org.elearning.portfolio.message.*;
+import org.elearning.portfolio.message.Message;
 
 
 public class MessageService{
@@ -41,6 +42,15 @@ public class MessageService{
                 messagesWithString.add(e);
             }
         }
+//        Message message1 = new Message();
+//        Message message2 = new Message();
+//        message1.setTitle("");
+//        message2.setTitle("te");
+//        List<Message> messagess = new ArrayList<Message>();
+//
+//        messagess.add(message1);
+//        messagess.add(message2);
+//        messagesWithString=messagess;
         return messagesWithString;
     }
 }
