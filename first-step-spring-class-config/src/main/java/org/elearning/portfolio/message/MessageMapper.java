@@ -11,7 +11,7 @@ public class MessageMapper implements RowMapper<Message> {
         message.setId(rs.getInt("ID"));
         message.setUserId(rs.getInt("USER_ID"));
         message.setTitle(rs.getString("TITLE"));
-        message.setTitle(rs.getString("CONTENT"));
+        message.setContent(rs.getString("CONTENT"));
         return message;
     }
 }
