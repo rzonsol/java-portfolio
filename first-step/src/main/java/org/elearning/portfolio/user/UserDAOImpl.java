@@ -16,10 +16,7 @@ import org.hibernate.Transaction;
  */
 
 public class UserDAOImpl implements UserDAO {
-//    private DataSource dataSource;
-//    private JdbcTemplate jdbcTemplateObject;
 
-    //---------
     private SessionFactory sessionFactory;
 
     public void setSessionFactory(SessionFactory sessionFactory) {
@@ -50,14 +47,19 @@ public class UserDAOImpl implements UserDAO {
         }
     }
 
-//    public void setDataSource(DataSource dataSource) {
-//        this.dataSource = dataSource;
-//        this.jdbcTemplateObject = new JdbcTemplate(dataSource);
-//    }
+
 
     public void addUser(String login,String email, String firstName, String lastName){
 //        String sqlCom = "INSERT INTO `USER`(LOGIN, EMAIL, FIRST_NAME, LAST_NAME) VALUES (?,?,?,?)";
 //        jdbcTemplateObject.update(sqlCom, login ,email, firstName, lastName);
+        User user = new User();
+        user.setLogin(login);
+        user.setEmail(email);
+        user.setFirstName(firstName);
+        user.setLastName(lastName);
+        Session session = this.sessionFactory.openSession();
+        session.save(user);
+        session.close();
         return;
     }
 

@@ -55,6 +55,7 @@ public class First {
 //		session.close();
 //		factory.close();
 
+		ser.addUser("login1","mail1", "firstName 1", "last name ");
 		List<User> users = ser.getUsers();
 		for (final User b : users) {
 			System.out.println(b.getLogin());
@@ -62,11 +63,7 @@ public class First {
 			System.out.println(b.getEmail());
 			System.out.println(b.getId());
 		}
-		User user = ser.getUser(49);
-		System.out.println(user.getLogin());
-		System.out.println(user.getLastName());
-		System.out.println(user.getEmail());
-		System.out.println(user.getId());
+
 	}
 
 }
