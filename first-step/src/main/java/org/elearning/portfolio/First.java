@@ -70,6 +70,7 @@ public class First {
 
 		messag.delMessage(7);
 		System.out.println("\n----\n");
+		messag.createMessage(1,"trtr","rtrt");
 		List<Message> messages =  messag.getUserMessages(1);
 		for( Message m : messages){
 			System.out.println(m.getId());

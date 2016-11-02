@@ -33,8 +33,13 @@ public class MessageDAOImpl implements MessageDAO {
     }
 
     public void createMessage(Integer userId, String title, String content){
-//        String sqlCom = "INSERT INTO `MESSAGES`(USER_ID, TITLE, CONTENT) VALUES (?,?,?)";
-//        jdbcTemplateObject.update( sqlCom ,userId, title, content);
+        Message message = new Message();
+        message.setUserId(userId);
+        message.setTitle(title);
+        message.setContent(content);
+        Session session = this.sessionFactory.openSession();
+        session.save(message);
+        session.close();
         return;
     }
 
