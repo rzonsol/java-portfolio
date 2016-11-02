@@ -10,6 +10,13 @@ import org.elearning.portfolio.services.*;
 
 import java.util.List;
 
+//-----------------------------------------------------------------
+//hibernate
+
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
+import org.hibernate.cfg.Configuration;
 
 public class First {
 
@@ -28,6 +35,30 @@ public class First {
 
 		MessageService messag = (MessageService)context.getBean("messageService");
 
+		// ---------------------------------------------------------------------
+		//hibernate
+		final Configuration configuration = new Configuration().configure();
+		final StandardServiceRegistryBuilder builder = new StandardServiceRegistryBuilder().applySettings(configuration.getProperties());
+		final SessionFactory factory = configuration.buildSessionFactory(builder.build());
+		final Session session = factory.openSession();
+		User user = new User();
+		user.setLogin("rzonsol");
+		user.setLastName("rzonsol");
+		user.setFirstName("piotr");
+		user.setEmail("jasdhf@sdfjkh");
+
+		session.beginTransaction();
+		session.save(user);
+		session.getTransaction().commit();
+		final List<User> users = session.createCriteria(User.class).list();
+		for (final User b : users) {
+			System.out.println(b.getLogin());
+			System.out.println(b.getLastName());
+			System.out.println(b.getEmail());
+			System.out.println(b.getId());
+		}
+		session.close();
+		factory.close();
 
 	}
 
