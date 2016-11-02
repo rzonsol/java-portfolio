@@ -10,6 +10,8 @@ import org.elearning.portfolio.message.*;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
+import org.hibernate.Criteria;
+import org.hibernate.criterion.Restrictions;
 
 public class MessageDAOImpl implements MessageDAO {
 
@@ -37,10 +39,16 @@ public class MessageDAOImpl implements MessageDAO {
     }
 
     public List<Message> getUserMessages(Integer userId){
-//        String sqlCom = "SELECT * FROM `MESSAGES` WHERE USER_ID = ? ;";
-//        List <Message> messages = jdbcTemplateObject.query(sqlCom,
-//                new Object[]{userId}, new MessageMapper());
-        return null;
+
+        Session session = this.sessionFactory.openSession();
+        Transaction tx = null;
+        tx = session.beginTransaction();
+        Criteria cr = session.createCriteria(Message.class);
+        cr.add(Restrictions.eq("userId", userId));
+        List messages = cr.list();
+        tx.commit();
+        session.close();
+        return messages;
     }
 
     public void delMessage(Integer id){

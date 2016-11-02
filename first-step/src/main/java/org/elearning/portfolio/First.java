@@ -70,7 +70,7 @@ public class First {
 
 		messag.delMessage(7);
 		System.out.println("\n----\n");
-		List<Message> messages =  messag.getMessages();
+		List<Message> messages =  messag.getUserMessages(1);
 		for( Message m : messages){
 			System.out.println(m.getId());
 			System.out.println(m.getTitle());
