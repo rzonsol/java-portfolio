@@ -42,27 +42,32 @@ public class First {
 //		final SessionFactory factory = configuration.buildSessionFactory(builder.build());
 //		final Session session = factory.openSession();
 //		User user = new User();
-//		user.setLogin("rzonsol");
-//		user.setLastName("rzonsol");
-//		user.setFirstName("piotr");
-//		user.setEmail("jasdhf@sdfjkh");
+//		user.setId(50);
 //
 //		session.beginTransaction();
-//		session.save(user);
+//		session.delete(user);
 //		session.getTransaction().commit();
 //		final List<User> users = session.createCriteria(User.class).list();
-
+//
 //		session.close();
 //		factory.close();
 
-		ser.addUser("login1","mail1", "firstName 1", "last name ");
-		List<User> users = ser.getUsers();
-		for (final User b : users) {
+//		ser.addUser("login1","mail1", "firstName 1", "last name ");
+		ser.delUser(47);
+		List<User> users1 = ser.getUsers();
+
+		for (final User b : users1) {
 			System.out.println(b.getLogin());
 			System.out.println(b.getLastName());
 			System.out.println(b.getEmail());
 			System.out.println(b.getId());
 		}
+//		User b = ser.getUser(51);
+//		System.out.println(b.getLogin());
+//		System.out.println(b.getLastName());
+//		System.out.println(b.getEmail());
+//		System.out.println(b.getId());
+
 
 	}
 

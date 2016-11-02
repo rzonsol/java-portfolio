@@ -36,6 +36,7 @@ public class UserDAOImpl implements UserDAO {
     }
 
     public User  getUser(Integer userId){
+
         User user = new User();
         if(checkUser(userId)) {
             Session session = this.sessionFactory.openSession();
@@ -50,8 +51,7 @@ public class UserDAOImpl implements UserDAO {
 
 
     public void addUser(String login,String email, String firstName, String lastName){
-//        String sqlCom = "INSERT INTO `USER`(LOGIN, EMAIL, FIRST_NAME, LAST_NAME) VALUES (?,?,?,?)";
-//        jdbcTemplateObject.update(sqlCom, login ,email, firstName, lastName);
+
         User user = new User();
         user.setLogin(login);
         user.setEmail(email);
@@ -64,8 +64,16 @@ public class UserDAOImpl implements UserDAO {
     }
 
     public void delUser(Integer id){
-//        String sqlCom = "DELETE FROM `USER` WHERE ID = ?";
-//        jdbcTemplateObject.update(sqlCom,id);
+        if(checkUser(id)) {
+            User user = new User();
+            user.setId(id);
+            Session session = this.sessionFactory.openSession();
+            session.beginTransaction();
+            session.delete(user);
+            session.getTransaction().commit();
+            session.close();
+        }
+        return;
     }
 
     public List<Message> getMessagesByUserId(Integer userId) {
