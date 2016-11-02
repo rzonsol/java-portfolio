@@ -43,6 +43,7 @@
             <list>
                 <value>User.hbm.xml</value>
                 <value>Message.hbm.xml</value>
+                <value>Role.hbm.xml</value>
             </list>
         </property>
         <property name="hibernateProperties">

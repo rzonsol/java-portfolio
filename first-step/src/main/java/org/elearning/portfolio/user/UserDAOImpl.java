@@ -5,11 +5,12 @@ import java.util.List;
 import javax.sql.DataSource;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.elearning.portfolio.message.*;
-//---------------------------------------------
-//hibernate
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
+import org.hibernate.Criteria;
+import org.hibernate.criterion.Restrictions;
+import org.hibernate.Query;
 
 /**
  * Created by rzonsol on 09.10.2016.
@@ -22,7 +23,6 @@ public class UserDAOImpl implements UserDAO {
     public void setSessionFactory(SessionFactory sessionFactory) {
         this.sessionFactory = sessionFactory;
     }
-
 
     private Boolean checkUser(Integer userId){
         Session session = this.sessionFactory.openSession();
@@ -47,8 +47,6 @@ public class UserDAOImpl implements UserDAO {
             return user;
         }
     }
-
-
 
     public void addUser(String login,String email, String firstName, String lastName){
 
@@ -77,18 +75,27 @@ public class UserDAOImpl implements UserDAO {
     }
 
     public List<Message> getMessagesByUserId(Integer userId) {
-//        String sqlCom = "SELECT * FROM `MESSAGES` WHERE USER_ID = ? ;";
-//        List<Message> messages = jdbcTemplateObject.query(sqlCom,
-//                new Object[]{userId}, new MessageMapper());
-        return null;
+
+        Session session = this.sessionFactory.openSession();
+        Transaction tx = null;
+        tx = session.beginTransaction();
+        Criteria cr = session.createCriteria(Message.class);
+        cr.add(Restrictions.eq("userId", userId));
+        List messages = cr.list();
+        tx.commit();
+        session.close();
+        return messages;
     }
 
     public void addUserRole(Integer userId, Integer roleId){
-//        String sqlCom ="INSERT INTO `USER_ROLES` (USER_ID, ROLE_ID) VALUES (?,?)";
-//        jdbcTemplateObject.update(sqlCom, userId ,roleId);
+        Session session = this.sessionFactory.openSession();
+        Query query = session.createSQLQuery("INSERT INTO USER_ROLES (USER_ID, ROLE_ID) VALUES (:userId,:roleId)");
+        query.setParameter("userId", userId);
+        query.setParameter("roleId", roleId);
+        query.executeUpdate();
+        session.close();
         return;
     }
-
 
         public List<User> getUsers() {
             Session session = this.sessionFactory.openSession();
@@ -97,14 +104,12 @@ public class UserDAOImpl implements UserDAO {
         return users;
     }
 
-
     public List<Role> getUserRoles(Integer userId){
-//        String sqlCom = "SELECT DISTINCT USER_ROLES.ROLE_ID, ROLES.NAME FROM ROLES LEFT JOIN USER_ROLES ON ROLES.ID=USER_ROLES.ROLE_ID WHERE USER_ROLES.USER_ID = ?;";
-//        List<Role> roles = jdbcTemplateObject.query(sqlCom,
-//                new Object[]{userId}, new RoleMapper());
-        return null;
+        Session session = this.sessionFactory.openSession();
+        Query query = session.createSQLQuery("SELECT DISTINCT USER_ROLES.ROLE_ID, ROLES.NAME FROM ROLES LEFT JOIN USER_ROLES ON ROLES.ID=USER_ROLES.ROLE_ID WHERE USER_ROLES.USER_ID = :userId");
+        query.setParameter("userId", userId);
+        List<Role> roles = query.list();
+        session.close();
+        return roles;
     }
-
-
-
 }

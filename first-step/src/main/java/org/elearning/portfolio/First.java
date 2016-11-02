@@ -28,54 +28,11 @@ public class First {
 		context = new ClassPathXmlApplicationContext(
 				"spring-module.xml");
 
-
-
-
 		UserService ser = (UserService)context.getBean("userService");
 
 		MessageService messag = (MessageService)context.getBean("messageService");
 
-		// ---------------------------------------------------------------------
-		//hibernate
-//		final Configuration configuration = new Configuration().configure();
-//		final StandardServiceRegistryBuilder builder = new StandardServiceRegistryBuilder().applySettings(configuration.getProperties());
-//		final SessionFactory factory = configuration.buildSessionFactory(builder.build());
-//		final Session session = factory.openSession();
-//		User user = new User();
-//		user.setId(50);
-//
-//		session.beginTransaction();
-//		session.delete(user);
-//		session.getTransaction().commit();
-//		final List<User> users = session.createCriteria(User.class).list();
-//
-//		session.close();
-//		factory.close();
 
-//		ser.addUser("login1","mail1", "firstName 1", "last name ");
-//		ser.delUser(47);
-		List<User> users1 = ser.getUsers();
-
-		for ( User b : users1) {
-			System.out.println(b.getLogin());
-			System.out.println(b.getLastName());
-			System.out.println(b.getEmail());
-			System.out.println(b.getId());
-		}
-//		User b = ser.getUser(51);
-//		System.out.println(b.getLogin());
-//		System.out.println(b.getLastName());
-//		System.out.println(b.getEmail());
-//		System.out.println(b.getId());
-
-		messag.delMessage(7);
-		System.out.println("\n----\n");
-		messag.createMessage(1,"trtr","rtrt");
-		List<Message> messages =  messag.getUserMessages(1);
-		for( Message m : messages){
-			System.out.println(m.getId());
-			System.out.println(m.getTitle());
-		}
 	}
 
 }

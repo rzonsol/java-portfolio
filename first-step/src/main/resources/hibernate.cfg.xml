@@ -24,12 +24,9 @@
         <!-- Echo all executed SQL to stdout -->
         <property name="show_sql">true</property>
 
-        <!-- Drop and re-create the database schema on startup -->
-        <!--<property name="hbm2ddl.auto">create</property>-->
-
         <mapping resource="User.hbm.xml"/>
         <mapping resource="Message.hbm.xml"/>
-
+        <mapping resource="Role.hbm.xml"/>
     </session-factory>
 
 </hibernate-configuration>

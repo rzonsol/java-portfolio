@@ -2,11 +2,8 @@ package org.elearning.portfolio.message;
 
 
 import java.util.List;
-import javax.sql.DataSource;
-import org.springframework.jdbc.core.JdbcTemplate;
 import org.elearning.portfolio.message.*;
-//---------------------------------------------
-//hibernate
+
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
@@ -16,12 +13,10 @@ import org.hibernate.criterion.Restrictions;
 public class MessageDAOImpl implements MessageDAO {
 
     private SessionFactory sessionFactory;
-
-    public void setSessionFactory(SessionFactory sessionFactory) {
-        this.sessionFactory = sessionFactory;
-    }
+    public void setSessionFactory(SessionFactory sessionFactory) {this.sessionFactory = sessionFactory;}
 
     private Boolean checkMessage(Integer messageId){
+
         Session session = this.sessionFactory.openSession();
         Message   message =  (Message) session.get(Message.class, messageId);
         session.close();
@@ -33,6 +28,7 @@ public class MessageDAOImpl implements MessageDAO {
     }
 
     public void createMessage(Integer userId, String title, String content){
+
         Message message = new Message();
         message.setUserId(userId);
         message.setTitle(title);
@@ -57,6 +53,7 @@ public class MessageDAOImpl implements MessageDAO {
     }
 
     public void delMessage(Integer id){
+
         if(checkMessage(id)) {
             Message message = new Message();
             message.setId(id);
@@ -69,10 +66,8 @@ public class MessageDAOImpl implements MessageDAO {
         return;
     }
 
-
-
-
     public List<Message> getMessages(){
+
         Session session = this.sessionFactory.openSession();
         List<Message> messages = session.createCriteria(Message.class).list();
         session.close();

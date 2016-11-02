@@ -6,7 +6,6 @@ public class Message{
     private String title;
     private String content;
 
-
     public void setId(Integer id){
         this.id = id;
     }
