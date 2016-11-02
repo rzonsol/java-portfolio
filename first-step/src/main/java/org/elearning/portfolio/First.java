@@ -53,10 +53,10 @@ public class First {
 //		factory.close();
 
 //		ser.addUser("login1","mail1", "firstName 1", "last name ");
-		ser.delUser(47);
+//		ser.delUser(47);
 		List<User> users1 = ser.getUsers();
 
-		for (final User b : users1) {
+		for ( User b : users1) {
 			System.out.println(b.getLogin());
 			System.out.println(b.getLastName());
 			System.out.println(b.getEmail());
@@ -68,7 +68,13 @@ public class First {
 //		System.out.println(b.getEmail());
 //		System.out.println(b.getId());
 
-
+		messag.delMessage(7);
+		System.out.println("\n----\n");
+		List<Message> messages =  messag.getMessages();
+		for( Message m : messages){
+			System.out.println(m.getId());
+			System.out.println(m.getTitle());
+		}
 	}
 
 }

@@ -28,6 +28,7 @@
         <!--<property name="hbm2ddl.auto">create</property>-->
 
         <mapping resource="User.hbm.xml"/>
+        <mapping resource="Message.hbm.xml"/>
 
     </session-factory>
 
