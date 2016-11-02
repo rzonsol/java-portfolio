@@ -37,29 +37,36 @@ public class First {
 
 		// ---------------------------------------------------------------------
 		//hibernate
-		final Configuration configuration = new Configuration().configure();
-		final StandardServiceRegistryBuilder builder = new StandardServiceRegistryBuilder().applySettings(configuration.getProperties());
-		final SessionFactory factory = configuration.buildSessionFactory(builder.build());
-		final Session session = factory.openSession();
-		User user = new User();
-		user.setLogin("rzonsol");
-		user.setLastName("rzonsol");
-		user.setFirstName("piotr");
-		user.setEmail("jasdhf@sdfjkh");
+//		final Configuration configuration = new Configuration().configure();
+//		final StandardServiceRegistryBuilder builder = new StandardServiceRegistryBuilder().applySettings(configuration.getProperties());
+//		final SessionFactory factory = configuration.buildSessionFactory(builder.build());
+//		final Session session = factory.openSession();
+//		User user = new User();
+//		user.setLogin("rzonsol");
+//		user.setLastName("rzonsol");
+//		user.setFirstName("piotr");
+//		user.setEmail("jasdhf@sdfjkh");
+//
+//		session.beginTransaction();
+//		session.save(user);
+//		session.getTransaction().commit();
+//		final List<User> users = session.createCriteria(User.class).list();
 
-		session.beginTransaction();
-		session.save(user);
-		session.getTransaction().commit();
-		final List<User> users = session.createCriteria(User.class).list();
+//		session.close();
+//		factory.close();
+
+		List<User> users = ser.getUsers();
 		for (final User b : users) {
 			System.out.println(b.getLogin());
 			System.out.println(b.getLastName());
 			System.out.println(b.getEmail());
 			System.out.println(b.getId());
 		}
-		session.close();
-		factory.close();
-
+		User user = ser.getUser(49);
+		System.out.println(user.getLogin());
+		System.out.println(user.getLastName());
+		System.out.println(user.getEmail());
+		System.out.println(user.getId());
 	}
 
 }
