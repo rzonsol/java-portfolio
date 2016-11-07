@@ -13,16 +13,15 @@ public interface UserDAO {
 
     public User getUser(Integer id);
 
-    public void addUser(String login,String email, String firstName, String lastName);
+    public void addUser(String login,String email, String firstName, String lastName, List<Role> roles);
 
+    public void addRole(Role role);
 
     public void delUser(Integer id);
-
 
     public void addUserRole(Integer userId, Integer roleId);
 
     public List<Message> getMessagesByUserId(Integer userId);
-
 
     public List<User> getUsers();
  

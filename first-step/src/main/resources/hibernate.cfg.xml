@@ -24,6 +24,8 @@
         <!-- Echo all executed SQL to stdout -->
         <property name="show_sql">true</property>
 
+        <!--<property name="hbm2ddl.auto">create</property>-->
+§§
         <mapping resource="User.hbm.xml"/>
         <mapping resource="Message.hbm.xml"/>
         <mapping resource="Role.hbm.xml"/>

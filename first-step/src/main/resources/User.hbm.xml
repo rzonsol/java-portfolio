@@ -7,10 +7,17 @@
     <class name="User" table="USER">
 
         <id name="id" type="int" column="ID"><generator class="native"/></id>
+
         <property name="login" column="LOGIN" type="java.lang.String"/>
         <property name="email" column="EMAIL" type="java.lang.String"/>
         <property name="firstName" column="FIRST_NAME" type="java.lang.String"/>
         <property name="lastName" column="LAST_NAME" type="java.lang.String"/>
+
+        <list name="roles" cascade="save-update" lazy="false" inverse="true">
+            <key column="USER_ID"/>
+            <list-index column="IDX"/>
+            <one-to-many class="Role"/>
+        </list>
     </class>
 
 </hibernate-mapping>

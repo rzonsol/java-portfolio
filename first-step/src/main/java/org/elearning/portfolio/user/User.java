@@ -1,5 +1,8 @@
 package org.elearning.portfolio.user;
 
+import org.elearning.portfolio.user.Role;
+import java.util.List;
+import java.util.ArrayList;
 /**
  * Created by rzonsol on 09.10.2016.
  */
@@ -9,6 +12,9 @@ public class User {
     private String firstName;
     private String lastName;
     private Integer id;
+    private List<Role> roles = new ArrayList<Role>();
+
+    public User(){}
 
     public void setLogin(String login) {
         this.login = login;
@@ -44,4 +50,7 @@ public class User {
     public Integer getId() {
         return id;
     }
+
+    public List<Role> getRoles() {return roles;}
+    public void setRoles(List<Role> roles) {this.roles = roles;}
 }

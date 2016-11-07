@@ -11,6 +11,7 @@ import org.hibernate.Transaction;
 import org.hibernate.Criteria;
 import org.hibernate.criterion.Restrictions;
 import org.hibernate.Query;
+import java.util.ArrayList;
 
 /**
  * Created by rzonsol on 09.10.2016.
@@ -48,13 +49,21 @@ public class UserDAOImpl implements UserDAO {
         }
     }
 
-    public void addUser(String login,String email, String firstName, String lastName){
+    public void addRole(Role role){
+        Session session = this.sessionFactory.openSession();
+        session.save(role);
+        session.close();
+        return;
+    }
+
+    public void addUser(String login,String email, String firstName, String lastName, List<Role> roles){
 
         User user = new User();
         user.setLogin(login);
         user.setEmail(email);
         user.setFirstName(firstName);
         user.setLastName(lastName);
+        user.setRoles(roles);
         Session session = this.sessionFactory.openSession();
         session.save(user);
         session.close();
@@ -106,9 +115,7 @@ public class UserDAOImpl implements UserDAO {
 
     public List<Role> getUserRoles(Integer userId){
         Session session = this.sessionFactory.openSession();
-        Query query = session.createSQLQuery("SELECT DISTINCT USER_ROLES.ROLE_ID, ROLES.NAME FROM ROLES LEFT JOIN USER_ROLES ON ROLES.ID=USER_ROLES.ROLE_ID WHERE USER_ROLES.USER_ID = :userId");
-        query.setParameter("userId", userId);
-        List<Role> roles = query.list();
+        List<Role> roles = session.createCriteria(Role.class).list();
         session.close();
         return roles;
     }

@@ -5,6 +5,8 @@ public class Role{
     private Integer roleId;
     private String roleName;
 
+    public Role(){}
+
     public Integer getRoleId() {
         return roleId;
     }
