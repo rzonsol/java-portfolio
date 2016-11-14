@@ -12,8 +12,9 @@ import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import org.hibernate.Criteria;
 import org.hibernate.criterion.Restrictions;
-import org.hibernate.Query;
 import java.util.ArrayList;
+
+import org.elearning.portfolio.services.MessageService;
 
 /**
  * Created by rzonsol on 09.10.2016.
@@ -99,14 +100,12 @@ public class UserDAOImpl implements UserDAO {
     }
 
     public List<Message> getMessagesByUserId(Integer userId) {
-
         Session session = this.sessionFactory.openSession();
-        Transaction tx = null;
-        tx = session.beginTransaction();
+        session.beginTransaction();
         Criteria cr = session.createCriteria(Message.class);
         cr.add(Restrictions.eq("userId", userId));
-        List messages = cr.list();
-        tx.commit();
+        List messages =  cr.list();
+        session.getTransaction().commit();
         session.close();
         return messages;
     }
@@ -149,4 +148,3 @@ public class UserDAOImpl implements UserDAO {
         return roles;
     }
 }
-// TODO do zrobienia metoda getMessagesByUserId
