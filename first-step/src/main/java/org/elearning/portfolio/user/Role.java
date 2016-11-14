@@ -4,6 +4,7 @@ package org.elearning.portfolio.user;
 public class Role{
     private Integer roleId;
     private String roleName;
+    private Integer userId;
 
     public Role(){}
 
@@ -22,4 +23,9 @@ public class Role{
     public void setRoleName(String roleName) {
         this.roleName = roleName;
     }
+
+    public Integer getUserId() {return userId;}
+
+    public void setUserId(Integer userId) {this.userId = userId;}
+
 }

@@ -3,6 +3,8 @@ package org.elearning.portfolio.user;
 
 import java.util.List;
 import javax.sql.DataSource;
+
+import org.hibernate.mapping.Array;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.elearning.portfolio.message.*;
 import org.hibernate.Session;
@@ -36,12 +38,23 @@ public class UserDAOImpl implements UserDAO {
         }
     }
 
-    public User  getUser(Integer userId){
+    private Boolean checkRole(User user, Role role){
+        List<Role> roles = user.getRoles();
+        for(Role r : roles){
+            if(r.getRoleName().equals(role.getRoleName())){
+                return true;
+            }
+        }
+        return false;
+    }
 
+    public User  getUser(Integer userId){
         User user = new User();
         if(checkUser(userId)) {
             Session session = this.sessionFactory.openSession();
+            session.beginTransaction();
             user = (User) session.get(User.class, userId);
+            session.getTransaction().commit();
             session.close();
             return user;
         }else {
@@ -65,7 +78,9 @@ public class UserDAOImpl implements UserDAO {
         user.setLastName(lastName);
         user.setRoles(roles);
         Session session = this.sessionFactory.openSession();
+        session.beginTransaction();
         session.save(user);
+        session.getTransaction().commit();
         session.close();
         return;
     }
@@ -96,27 +111,42 @@ public class UserDAOImpl implements UserDAO {
         return messages;
     }
 
-    public void addUserRole(Integer userId, Integer roleId){
+    public void addUserRole(Integer userId, Role role){
         Session session = this.sessionFactory.openSession();
-        Query query = session.createSQLQuery("INSERT INTO USER_ROLES (USER_ID, ROLE_ID) VALUES (:userId,:roleId)");
-        query.setParameter("userId", userId);
-        query.setParameter("roleId", roleId);
-        query.executeUpdate();
+        session.beginTransaction();
+        User user = getUser(userId);
+        List<Role> roles = user.getRoles();
+        if(!checkRole(user,role)){
+            roles.add(role);
+        }
+        user.setRoles(roles);
+        session.update(user);
+        session.getTransaction().commit();
         session.close();
         return;
     }
 
-        public List<User> getUsers() {
-            Session session = this.sessionFactory.openSession();
-            List<User> users = session.createCriteria(User.class).list();
-            session.close();
-        return users;
+    public List<User> getUsers() {
+        Session session = this.sessionFactory.openSession();
+        session.beginTransaction();
+        List<User> users = session.createCriteria(User.class).list();
+        session.getTransaction().commit();
+        session.close();
+    return users;
     }
 
     public List<Role> getUserRoles(Integer userId){
+        List<Role> roles=new ArrayList<Role>();
         Session session = this.sessionFactory.openSession();
-        List<Role> roles = session.createCriteria(Role.class).list();
-        session.close();
+        if(checkUser(userId)) {
+            session.beginTransaction();
+            User user =   (User)session.get(User.class, userId);
+            roles = user.getRoles();
+            session.getTransaction().commit();
+            session.close();
+            return roles;
+        }
         return roles;
     }
 }
+// TODO do zrobienia metoda getMessagesByUserId

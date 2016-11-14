@@ -31,8 +31,8 @@ public class UserService{
         return user.getMessagesByUserId(userId);
     }
 
-    public void addUserRole(Integer userId, Integer roleId) {
-        user.addUserRole(userId, roleId);
+    public void addUserRole(Integer userId, Role role) {
+        user.addUserRole(userId, role);
     }
 
     public List<User> getUsers(){

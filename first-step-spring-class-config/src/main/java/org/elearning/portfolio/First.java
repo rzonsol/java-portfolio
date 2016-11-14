@@ -49,4 +49,3 @@ public class First {
 
 
 
-// TODO-rzonsol Check the connection to DB for messages

@@ -19,7 +19,7 @@ public interface UserDAO {
 
     public void delUser(Integer id);
 
-    public void addUserRole(Integer userId, Integer roleId);
+    public void addUserRole(Integer userId, Role role);
 
     public List<Message> getMessagesByUserId(Integer userId);
 

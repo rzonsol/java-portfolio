@@ -13,7 +13,7 @@
         <property name="firstName" column="FIRST_NAME" type="java.lang.String"/>
         <property name="lastName" column="LAST_NAME" type="java.lang.String"/>
 
-        <list name="roles" cascade="save-update" lazy="false" inverse="true">
+        <list name="roles" cascade="save-update" lazy="false" >
             <key column="USER_ID"/>
             <list-index column="IDX"/>
             <one-to-many class="Role"/>
