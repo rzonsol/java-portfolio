@@ -5,14 +5,18 @@ import javax.persistence.*;
 @Entity
 @Table(name = "MESSAGES")
 public class Message{
+
     @Id
     @Column(name = "ID")
     @GeneratedValue
     private Integer id;
+
     @Column(name = "USER_ID" )
     private Integer userId;
+
     @Column(name = "TITLE")
     private String title;
+
     @Column(name="CONTENT")
     private String content;
 

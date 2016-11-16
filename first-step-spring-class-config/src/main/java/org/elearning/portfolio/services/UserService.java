@@ -1,12 +1,13 @@
 package org.elearning.portfolio.services;
 
 
-import java.util.List;
+import org.elearning.portfolio.message.Message;
+import org.elearning.portfolio.user.Role;
+import org.elearning.portfolio.user.User;
+import org.elearning.portfolio.user.UserDAO;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
 
-import org.elearning.portfolio.user.*;
-import org.elearning.portfolio.message.*;
+import java.util.List;
 
 
 public class UserService{

@@ -2,6 +2,7 @@ package org.elearning.portfolio.user;
 
 
 public class Role{
+
     private Integer roleId;
     private String roleName;
     private Integer userId;

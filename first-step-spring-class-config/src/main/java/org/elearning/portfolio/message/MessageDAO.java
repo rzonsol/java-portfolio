@@ -2,7 +2,6 @@ package org.elearning.portfolio.message;
 
 
 import java.util.List;
-import javax.sql.DataSource;
 
 
 public interface MessageDAO {

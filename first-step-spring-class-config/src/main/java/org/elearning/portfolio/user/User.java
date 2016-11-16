@@ -3,7 +3,6 @@ package org.elearning.portfolio.user;
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
-import org.elearning.portfolio.user.Role;
 
 /**
  * Created by rzonsol on 09.10.2016.
@@ -11,17 +10,23 @@ import org.elearning.portfolio.user.Role;
 @Entity
 @Table(name ="USER")
 public class User {
+
     @Id
     @GeneratedValue
     private Integer id;
+
     @Column(name ="LOGIN")
     private String login;
+
     @Column(name = "EMAiL")
     private String email;
+
     @Column(name = "FIRST_NAME")
     private String firstName;
+
     @Column(name="LAST_NAME")
     private String lastName;
+
     @OneToMany(cascade=CascadeType.ALL, fetch = FetchType.EAGER)
     @JoinColumn(name="USER_ID")
     private List<Role> roles = new ArrayList<Role>();

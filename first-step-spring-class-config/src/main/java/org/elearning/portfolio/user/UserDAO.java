@@ -1,9 +1,9 @@
 package org.elearning.portfolio.user;
 
 
+import org.elearning.portfolio.message.Message;
+
 import java.util.List;
-import javax.sql.DataSource;
-import org.elearning.portfolio.message.*;
 
 
 public interface UserDAO {

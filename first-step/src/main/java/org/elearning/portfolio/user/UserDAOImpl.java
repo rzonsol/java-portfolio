@@ -29,6 +29,7 @@ public class UserDAOImpl implements UserDAO {
     }
 
     private Boolean checkUser(Integer userId){
+
         Session session = this.sessionFactory.openSession();
         User   user =  (User) session.get(User.class, userId);
         session.close();
@@ -50,6 +51,7 @@ public class UserDAOImpl implements UserDAO {
     }
 
     public User  getUser(Integer userId){
+
         User user = new User();
         if(checkUser(userId)) {
             Session session = this.sessionFactory.openSession();
@@ -64,6 +66,7 @@ public class UserDAOImpl implements UserDAO {
     }
 
     public void addRole(Role role){
+
         Session session = this.sessionFactory.openSession();
         session.save(role);
         session.close();
@@ -87,6 +90,7 @@ public class UserDAOImpl implements UserDAO {
     }
 
     public void delUser(Integer id){
+
         if(checkUser(id)) {
             User user = new User();
             user.setId(id);
@@ -100,6 +104,7 @@ public class UserDAOImpl implements UserDAO {
     }
 
     public List<Message> getMessagesByUserId(Integer userId) {
+
         Session session = this.sessionFactory.openSession();
         session.beginTransaction();
         Criteria cr = session.createCriteria(Message.class);
@@ -111,6 +116,7 @@ public class UserDAOImpl implements UserDAO {
     }
 
     public void addUserRole(Integer userId, Role role){
+
         Session session = this.sessionFactory.openSession();
         session.beginTransaction();
         User user = getUser(userId);
@@ -126,6 +132,7 @@ public class UserDAOImpl implements UserDAO {
     }
 
     public List<User> getUsers() {
+
         Session session = this.sessionFactory.openSession();
         session.beginTransaction();
         List<User> users = session.createCriteria(User.class).list();
@@ -135,6 +142,7 @@ public class UserDAOImpl implements UserDAO {
     }
 
     public List<Role> getUserRoles(Integer userId){
+
         List<Role> roles=new ArrayList<Role>();
         Session session = this.sessionFactory.openSession();
         if(checkUser(userId)) {

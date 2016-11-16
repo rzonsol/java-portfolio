@@ -8,7 +8,6 @@
         <id name="roleId" column="ROLE_ID">
             <generator class="native"/>
         </id>
-
         <property name="roleName" column="ROLE_NAME" />
         <property name="userId" column="USER_ID" />
     </class>

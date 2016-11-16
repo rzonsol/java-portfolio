@@ -1,26 +1,19 @@
 package org.elearning.portfolio.user;
 
 
-import java.util.ArrayList;
-import java.util.List;
-import javax.sql.DataSource;
-import javax.annotation.PostConstruct;
-
+import org.elearning.portfolio.message.Message;
 import org.hibernate.Criteria;
-import org.hibernate.criterion.Restrictions;
-import org.springframework.jdbc.core.JdbcTemplate;
-import org.springframework.stereotype.Repository;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.elearning.portfolio.message.*;
-
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import org.hibernate.criterion.Restrictions;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.transaction.annotation.Transactional;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @Transactional
 public class UserDAOImpl implements UserDAO {
-
-
 
     @Autowired
     private SessionFactory sessionFactory;
@@ -30,6 +23,7 @@ public class UserDAOImpl implements UserDAO {
     }
 
     private Boolean checkUser(Integer userId){
+
         Session session = this.sessionFactory.openSession();
         User   user =  (User) session.get(User.class, userId);
         session.close();
@@ -41,6 +35,7 @@ public class UserDAOImpl implements UserDAO {
     }
 
     private Boolean checkRole(User user, Role role){
+
         List<Role> roles = user.getRoles();
         for(Role r : roles){
             if(r.getRoleName().equals(role.getRoleName())){
@@ -51,6 +46,7 @@ public class UserDAOImpl implements UserDAO {
     }
 
     public User  getUser(Integer userId){
+
         User user = new User();
         if(checkUser(userId)) {
             Session session = getSession();
@@ -62,6 +58,7 @@ public class UserDAOImpl implements UserDAO {
     }
 
     public void addUser(String login,String email, String firstName, String lastName,List<Role> roles){
+
         User user = new User();
         user.setFirstName(firstName);
         user.setLastName(lastName);
@@ -74,6 +71,7 @@ public class UserDAOImpl implements UserDAO {
     }
 
     public void delUser(Integer id){
+
         if(checkUser(id)) {
             User user = new User();
             user.setId(id);
@@ -84,6 +82,7 @@ public class UserDAOImpl implements UserDAO {
     }
 
     public List<Message> getMessagesByUserId(Integer userId) {
+
         Session session = getSession();
         Criteria cr = session.createCriteria(Message.class);
         cr.add(Restrictions.eq("userId", userId));
@@ -92,6 +91,7 @@ public class UserDAOImpl implements UserDAO {
     }
 
     public void addUserRole(Integer userId, Role role){
+
         Session session = getSession();
         User user = getUser(userId);
         List<Role> roles = user.getRoles();
@@ -104,12 +104,14 @@ public class UserDAOImpl implements UserDAO {
     }
 
     public List<User> getUsers() {
+
         Session session = getSession();
         Criteria criteria = session.createCriteria(User.class);
         return (List<User>) criteria.list();
     }
 
     public List<Role> getUserRoles(Integer userId){
+
         List<Role> roles=new ArrayList<Role>();
         Session session = getSession();
         if(checkUser(userId)) {

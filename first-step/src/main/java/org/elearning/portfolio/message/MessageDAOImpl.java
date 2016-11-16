@@ -16,6 +16,7 @@ public class MessageDAOImpl implements MessageDAO {
     public void setSessionFactory(SessionFactory sessionFactory) {this.sessionFactory = sessionFactory;}
 
     private Boolean checkMessage(Integer messageId){
+
         Session session = this.sessionFactory.openSession();
         Message   message =  (Message) session.get(Message.class, messageId);
         session.close();
@@ -27,6 +28,7 @@ public class MessageDAOImpl implements MessageDAO {
     }
 
     public void createMessage(Integer userId, String title, String content){
+
         Message message = new Message();
         message.setUserId(userId);
         message.setTitle(title);
@@ -40,6 +42,7 @@ public class MessageDAOImpl implements MessageDAO {
     }
 
     public List<Message> getUserMessages(Integer userId){
+
         Session session = this.sessionFactory.openSession();
         session.beginTransaction();
         Criteria cr = session.createCriteria(Message.class);
@@ -51,6 +54,7 @@ public class MessageDAOImpl implements MessageDAO {
     }
 
     public void delMessage(Integer id){
+
         if(checkMessage(id)) {
             Message message = new Message();
             message.setId(id);
@@ -64,6 +68,7 @@ public class MessageDAOImpl implements MessageDAO {
     }
 
     public List<Message> getMessages(){
+
         Session session = this.sessionFactory.openSession();
         session.beginTransaction();
         List<Message> messages = session.createCriteria(Message.class).list();
