@@ -7,6 +7,7 @@ import javax.sql.DataSource;
 import javax.annotation.PostConstruct;
 
 import org.hibernate.Criteria;
+import org.hibernate.criterion.Restrictions;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,13 +20,7 @@ import org.springframework.transaction.annotation.Transactional;
 @Transactional
 public class UserDAOImpl implements UserDAO {
 
-    private DataSource dataSource;
 
-    private JdbcTemplate jdbcTemplateObject;
-    @Autowired
-    public void setDataSource(DataSource dataSource) {
-        this.jdbcTemplateObject = new JdbcTemplate(dataSource);
-    }
 
     @Autowired
     private SessionFactory sessionFactory;
@@ -89,13 +84,12 @@ public class UserDAOImpl implements UserDAO {
     }
 
     public List<Message> getMessagesByUserId(Integer userId) {
-        String sqlCom = "SELECT * FROM `MESSAGES` WHERE USER_ID = ? ;";
-        List<Message> messages = jdbcTemplateObject.query(sqlCom,
-                new Object[]{userId}, new MessageMapper());
+        Session session = getSession();
+        Criteria cr = session.createCriteria(Message.class);
+        cr.add(Restrictions.eq("userId", userId));
+        List messages =  cr.list();
         return messages;
     }
-
-//    TODO add to getMessageById
 
     public void addUserRole(Integer userId, Role role){
         Session session = getSession();
