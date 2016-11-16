@@ -22,7 +22,9 @@ public class User {
     private String firstName;
     @Column(name="LAST_NAME")
     private String lastName;
-//    private List<Role> roles = new ArrayList<Role>();
+    @OneToMany(cascade=CascadeType.ALL, fetch = FetchType.EAGER)
+    @JoinColumn(name="USER_ID")
+    private List<Role> roles = new ArrayList<Role>();
 
     public User(){}
 
@@ -61,6 +63,6 @@ public class User {
         return id;
     }
 
-//    public List<Role> getRoles() {return roles;}
-//    public void setRoles(List<Role> roles) {this.roles = roles;}
+    public List<Role> getRoles() {return roles;}
+    public void setRoles(List<Role> roles) {this.roles = roles;}
 }

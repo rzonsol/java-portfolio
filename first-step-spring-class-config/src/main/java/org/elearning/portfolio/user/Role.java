@@ -1,9 +1,17 @@
 package org.elearning.portfolio.user;
 
+import javax.persistence.*;
 
+@Entity
+@Table(name = "ROLES")
 public class Role{
+    @Id
+    @GeneratedValue
+    @Column(name = "ROLE_ID")
     private Integer roleId;
+    @Column(name = "ROLE_NAME")
     private String roleName;
+    @Column(name ="USER_ID")
     private Integer userId;
 
     public Role(){}

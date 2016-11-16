@@ -32,7 +32,7 @@ public class HibernateConfiguration {
     public LocalSessionFactoryBean sessionFactory() {
         LocalSessionFactoryBean sessionFactory = new LocalSessionFactoryBean();
         sessionFactory.setDataSource(dataSource());
-        sessionFactory.setPackagesToScan(new String[] { "org.elearning.portfolio.user" });
+        sessionFactory.setPackagesToScan(new String[] { "org.elearning.portfolio.user" ,"org.elearning.portfolio.message"});
         sessionFactory.setHibernateProperties(hibernateProperties());
         return sessionFactory;
     }

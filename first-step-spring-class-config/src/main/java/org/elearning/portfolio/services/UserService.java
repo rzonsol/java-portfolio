@@ -22,7 +22,7 @@ public class UserService{
 
     public User getUser(Integer userId){return userDao.getUser(userId) ;}
 
-    public void addUser(String login,String email, String firstName, String lastName){userDao.addUser(login, email, firstName, lastName);}
+    public void addUser(String login,String email, String firstName, String lastName,List<Role> roles){userDao.addUser(login, email, firstName, lastName,roles);}
 
     public void delUser(Integer id){
         userDao.delUser(id);
@@ -32,8 +32,8 @@ public class UserService{
         return userDao.getMessagesByUserId(userId);
     }
 
-    public void addUserRole(Integer userId, Integer roleId) {
-        userDao.addUserRole(userId, roleId);
+    public void addUserRole(Integer userId, Role role) {
+        userDao.addUserRole(userId, role);
     }
 
     public List<User> getUsers(){
