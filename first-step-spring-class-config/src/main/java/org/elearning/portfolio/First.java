@@ -20,9 +20,10 @@ public class First {
 		ctx.refresh();
 
 		UserService ser = (UserService)ctx.getBean("userService");
-		MessageService messag = (MessageService)ctx.getBean("messageService");
+//		MessageService messag = (MessageService)ctx.getBean("messageService");
 
 		List<User> users = ser.getUsers(); //list of all users
+		System.out.println(users);
 		System.out.println("list of users");
 		for (User e : users){
 			System.out.print("id " + e.getId());
@@ -32,18 +33,18 @@ public class First {
 			System.out.println(", lastName " + e.getLastName());
 		}
 
-		messag.createMessage(2,"test","test");
-		messag.createMessage(2,"test2","test2");
-		messag.createMessage(2,"test3","test3");
-
-		List<Message> messages = messag.getMessages(); //list of all messages
-		System.out.println("list of messages");
-		for (Message e : messages){
-			System.out.print("id " + e.getId());
-			System.out.print(", user_id " + e.getUserId());
-			System.out.print(", title " + e.getUserId());
-			System.out.println(", content " + e.getContent());
-		}
+//		messag.createMessage(2,"test","test");
+//		messag.createMessage(2,"test2","test2");
+//		messag.createMessage(2,"test3","test3");
+//
+//		List<Message> messages = messag.getMessages(); //list of all messages
+//		System.out.println("list of messages");
+//		for (Message e : messages){
+//			System.out.print("id " + e.getId());
+//			System.out.print(", user_id " + e.getUserId());
+//			System.out.print(", title " + e.getUserId());
+//			System.out.println(", content " + e.getContent());
+//		}
 	}
 }
 

@@ -4,16 +4,28 @@ package org.elearning.portfolio.user;
 import java.util.List;
 import javax.sql.DataSource;
 import javax.annotation.PostConstruct;
+
+import org.hibernate.Criteria;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.elearning.portfolio.message.*;
 
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.springframework.transaction.annotation.Transactional;
 
+@Transactional
 public class UserDAOImpl implements UserDAO {
 
     private DataSource dataSource;
     private JdbcTemplate jdbcTemplateObject;
+    @Autowired
+    private SessionFactory sessionFactory;
+
+    protected Session getSession() {
+        return sessionFactory.getCurrentSession();
+    }
 
     public User  getUser(Integer userId){
         String sqlCom = "SELECT * FROM `USER` WHERE ID = ? ";
@@ -52,10 +64,9 @@ public class UserDAOImpl implements UserDAO {
     }
 
     public List<User> getUsers() {
-        String sqlCon = "SELECT * FROM USER ;";
-        List <User> users = jdbcTemplateObject.query(sqlCon,
-                new UserMapper());
-        return users;
+        Session session = getSession();
+        Criteria criteria = session.createCriteria(User.class);
+        return (List<User>) criteria.list();
     }
 
     public List<Role> getUserRoles(Integer userId){
