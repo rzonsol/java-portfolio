@@ -51,22 +51,27 @@ public class UserDAOImpl implements UserDAO {
     }
 
     public User  getUser(Integer userId){
-
+        Session session =null;
         User user = new User();
-        if(checkUser(userId)) {
-            Session session = this.sessionFactory.openSession();
-            session.beginTransaction();
-            user = (User) session.get(User.class, userId);
-            session.getTransaction().commit();
-            session.close();
-            return user;
-        }else {
+        try {
+            if (checkUser(userId)) {
+                session = this.sessionFactory.openSession();
+                session.beginTransaction();
+                user = (User) session.get(User.class, userId);
+                session.getTransaction().commit();
+            }
+        }catch (Exception ex) {
+            ex.printStackTrace();
+            session.getTransaction().rollback();
+        }finally  {
+            if(session!=null) {
+                session.close();
+            }
             return user;
         }
     }
 
     public void addRole(Role role){
-
         Session session = this.sessionFactory.openSession();
         session.save(role);
         session.close();
@@ -81,78 +86,136 @@ public class UserDAOImpl implements UserDAO {
         user.setFirstName(firstName);
         user.setLastName(lastName);
         user.setRoles(roles);
-        Session session = this.sessionFactory.openSession();
-        session.beginTransaction();
-        session.save(user);
-        session.getTransaction().commit();
-        session.close();
-        return;
+        Session session=null;
+        try {
+            session = this.sessionFactory.openSession();
+            session.beginTransaction();
+            session.save(user);
+            session.getTransaction().commit();
+        }catch (Exception ex){
+            ex.printStackTrace();
+            session.getTransaction().rollback();
+        }finally {
+            if(session!=null) {
+                session.close();
+            }
+            return;
+        }
+
     }
 
     public void delUser(Integer id){
 
         if(checkUser(id)) {
+            Session session=null;
             User user = new User();
             user.setId(id);
-            Session session = this.sessionFactory.openSession();
-            session.beginTransaction();
-            session.delete(user);
-            session.getTransaction().commit();
-            session.close();
+            try {
+                session = this.sessionFactory.openSession();
+                session.beginTransaction();
+                session.delete(user);
+                session.getTransaction().commit();
+            }catch (Exception ex){
+                ex.printStackTrace();
+                session.getTransaction().rollback();
+            }finally {
+                if(session!=null) {
+                    session.close();
+                }
+                return;
+            }
         }
         return;
     }
 
     public List<Message> getMessagesByUserId(Integer userId) {
 
-        Session session = this.sessionFactory.openSession();
-        session.beginTransaction();
-        Criteria cr = session.createCriteria(Message.class);
-        cr.add(Restrictions.eq("userId", userId));
-        List messages =  cr.list();
-        session.getTransaction().commit();
-        session.close();
-        return messages;
+        Session session = null;
+        List messages = null;
+        try {
+            session = this.sessionFactory.openSession();
+            session.beginTransaction();
+            Criteria cr = session.createCriteria(Message.class);
+            cr.add(Restrictions.eq("userId", userId));
+            messages = cr.list();
+            session.getTransaction().commit();
+        }catch (Exception ex){
+            ex.printStackTrace();
+            session.getTransaction().rollback();
+        }finally {
+            if(session!=null){
+                session.close();
+            }
+            return messages;
+        }
     }
 
     public void addUserRole(Integer userId, Role role){
 
-        Session session = this.sessionFactory.openSession();
-        session.beginTransaction();
-        User user = getUser(userId);
-        List<Role> roles = user.getRoles();
-        if(!checkRole(user,role)){
-            roles.add(role);
+        Session session = null;
+        try {
+            session = this.sessionFactory.openSession();
+            session.beginTransaction();
+            User user = getUser(userId);
+            List<Role> roles = user.getRoles();
+            if (!checkRole(user, role)) {
+                roles.add(role);
+            }
+            user.setRoles(roles);
+            session.update(user);
+            session.getTransaction().commit();
+        }catch (Exception ex){
+            ex.printStackTrace();
+            session.getTransaction().rollback();
+        }finally {
+            if(session!=null){
+                session.close();
+            }
+            return;
         }
-        user.setRoles(roles);
-        session.update(user);
-        session.getTransaction().commit();
-        session.close();
-        return;
     }
 
     public List<User> getUsers() {
 
-        Session session = this.sessionFactory.openSession();
-        session.beginTransaction();
-        List<User> users = session.createCriteria(User.class).list();
-        session.getTransaction().commit();
-        session.close();
-    return users;
+        Session session =null;
+        List<User> users=null;
+        try {
+            session = this.sessionFactory.openSession();
+            session.beginTransaction();
+            users = session.createCriteria(User.class).list();
+            session.getTransaction().commit();
+        }catch (Exception ex){
+            ex.printStackTrace();
+            session.getTransaction().rollback();
+        }finally {
+            if(session!=null){
+                session.close();
+            }
+            return users;
+        }
+
     }
 
     public List<Role> getUserRoles(Integer userId){
 
         List<Role> roles=new ArrayList<Role>();
-        Session session = this.sessionFactory.openSession();
-        if(checkUser(userId)) {
-            session.beginTransaction();
-            User user =   (User)session.get(User.class, userId);
-            roles = user.getRoles();
-            session.getTransaction().commit();
-            session.close();
+        Session session = null;
+        try {
+            session = this.sessionFactory.openSession();
+            if (checkUser(userId)) {
+                session.beginTransaction();
+                User user = (User) session.get(User.class, userId);
+                roles = user.getRoles();
+                session.getTransaction().commit();
+            }
+        }catch (Exception ex){
+            ex.printStackTrace();
+            session.getTransaction().rollback();
+        }finally {
+            if(session!=null){
+                session.close();
+            }
             return roles;
         }
-        return roles;
     }
 }

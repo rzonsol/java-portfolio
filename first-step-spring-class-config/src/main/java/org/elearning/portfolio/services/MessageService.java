@@ -3,10 +3,11 @@ package org.elearning.portfolio.services;
 import org.elearning.portfolio.message.Message;
 import org.elearning.portfolio.message.MessageDAO;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
-
+@Transactional
 public class MessageService{
 
     @Autowired

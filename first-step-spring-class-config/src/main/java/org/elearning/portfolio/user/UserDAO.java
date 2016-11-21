@@ -8,17 +8,17 @@ import java.util.List;
 
 public interface UserDAO {
 
-    public User getUser(Integer id);
+     User getUser(Integer id);
 
-    public void addUser(String login, String email, String firstName, String lastName,List<Role> roles);
+     void addUser(String login, String email, String firstName, String lastName,List<Role> roles);
 
-    public void delUser(Integer id);
+     void delUser(Integer id);
 
-    public void addUserRole(Integer userId, Role role);
+     void addUserRole(Integer userId, Role role);
 
-    public List<Message> getMessagesByUserId(Integer userId);
+     List<Message> getMessagesByUserId(Integer userId);
 
-    public List<User> getUsers();
+     List<User> getUsers();
  
-    public List<Role> getUserRoles(Integer userId);
+     List<Role> getUserRoles(Integer userId);
 }
