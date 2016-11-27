@@ -1,14 +1,16 @@
 package org.elearning.portfolio.services;
 
 
-import java.util.List;
+import org.elearning.portfolio.message.Message;
+import org.elearning.portfolio.user.Role;
+import org.elearning.portfolio.user.User;
+import org.elearning.portfolio.user.UserDAO;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
-import org.elearning.portfolio.user.*;
-import org.elearning.portfolio.message.*;
+import java.util.List;
 
-
+@Transactional
 public class UserService{
 
     @Autowired
@@ -19,7 +21,7 @@ public class UserService{
 
     public User getUser(Integer userId){return userDao.getUser(userId) ;}
 
-    public void addUser(String login,String email, String firstName, String lastName){userDao.addUser(login, email, firstName, lastName);}
+    public void addUser(String login,String email, String firstName, String lastName,List<Role> roles){userDao.addUser(login, email, firstName, lastName,roles);}
 
     public void delUser(Integer id){
         userDao.delUser(id);
@@ -29,8 +31,8 @@ public class UserService{
         return userDao.getMessagesByUserId(userId);
     }
 
-    public void addUserRole(Integer userId, Integer roleId) {
-        userDao.addUserRole(userId, roleId);
+    public void addUserRole(Integer userId, Role role) {
+        userDao.addUserRole(userId, role);
     }
 
     public List<User> getUsers(){

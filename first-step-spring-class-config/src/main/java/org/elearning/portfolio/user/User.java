@@ -1,18 +1,41 @@
 package org.elearning.portfolio.user;
 
+import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
+/**
+ * Created by rzonsol on 09.10.2016.
+ */
+@Entity
+@Table(name ="USER")
 public class User {
 
-    private String login;
-    private String email;
-    private String firstName;
-    private String lastName;
+    @Id
+    @GeneratedValue
     private Integer id;
+
+    @Column(name ="LOGIN")
+    private String login;
+
+    @Column(name = "EMAiL")
+    private String email;
+
+    @Column(name = "FIRST_NAME")
+    private String firstName;
+
+    @Column(name="LAST_NAME")
+    private String lastName;
+
+    @OneToMany(cascade=CascadeType.ALL, fetch = FetchType.EAGER)
+    @JoinColumn(name="USER_ID")
+    private List<Role> roles = new ArrayList<Role>();
+
+    public User(){}
 
     public void setLogin(String login) {
         this.login = login;
     }
-
     public String getLogin() {
         return login;
     }
@@ -20,7 +43,6 @@ public class User {
     public void setEmail(String email) {
         this.email = email;
     }
-
     public String getEmail() {
         return email;
     }
@@ -28,7 +50,6 @@ public class User {
     public void setFirstName(String firstName) {
         this.firstName = firstName;
     }
-
     public String getFirstName() {
         return firstName;
     }
@@ -36,7 +57,6 @@ public class User {
     public void setLastName(String lastName) {
         this.lastName = lastName;
     }
-
     public String getLastName() {
         return lastName;
     }
@@ -44,8 +64,10 @@ public class User {
     public void setId(Integer id) {
         this.id = id;
     }
-
     public Integer getId() {
         return id;
     }
+
+    public List<Role> getRoles() {return roles;}
+    public void setRoles(List<Role> roles) {this.roles = roles;}
 }

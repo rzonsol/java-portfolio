@@ -1,16 +1,25 @@
 package org.elearning.portfolio.services;
 
+import org.elearning.portfolio.message.Message;
+import org.elearning.portfolio.message.MessageDAO;
 import java.util.List;
 import java.util.ArrayList;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.transaction.annotation.Transactional;
 import org.elearning.portfolio.message.Message;
 import org.elearning.portfolio.message.MessageDAO;
 
+import java.util.List;
 
+@Transactional
 public class MessageService{
 
     @Autowired
     private MessageDAO messageDao;
+
+    public MessageService(){
+        this.messageDao= messageDao;
+    }
 
     public void createMessage(Integer userId, String title, String content){messageDao.createMessage(userId, title, content);}
 

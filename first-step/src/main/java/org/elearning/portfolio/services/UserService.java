@@ -19,9 +19,8 @@ public class UserService{
 
     public User getUser(Integer userId){return user.getUser(userId) ;}
 
-
-    public void addUser(String login,String email, String firstName, String lastName){
-        user.addUser(login, email, firstName, lastName);
+    public void addUser(String login,String email, String firstName, String lastName, List<Role> roles){
+        user.addUser(login, email, firstName, lastName, roles);
     }
 
     public void delUser(Integer id){
@@ -32,8 +31,8 @@ public class UserService{
         return user.getMessagesByUserId(userId);
     }
 
-    public void addUserRole(Integer userId, Integer roleId) {
-        user.addUserRole(userId, roleId);
+    public void addUserRole(Integer userId, Role role) {
+        user.addUserRole(userId, role);
     }
 
     public List<User> getUsers(){
@@ -43,4 +42,6 @@ public class UserService{
     public List<Role> getUserRoles(Integer userId) {
         return user.getUserRoles(userId);
     }
+
+    public void addRole(Role role){user.addRole(role);return;}
 }

@@ -1,11 +1,11 @@
 package org.elearning.portfolio.message;
 
 public class Message{
+
     private Integer id;
     private Integer userId;
     private String title;
     private String content;
-
 
     public void setId(Integer id){
         this.id = id;
