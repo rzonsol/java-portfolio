@@ -8,9 +8,6 @@ import org.elearning.portfolio.user.*;
 import org.elearning.portfolio.message.*;
 import org.elearning.portfolio.services.*;
 
-import javax.jws.soap.SOAPBinding;
-import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 
@@ -23,36 +20,33 @@ public class First {
 		ctx.refresh();
 
 		UserService ser = (UserService)ctx.getBean("userService");
+		MessageService messag = (MessageService)ctx.getBean("messageService");
 
-
-
-
-		Role role = new Role();
-		role.setRoleName("Admin");
-		List<Role> roles =  Arrays.asList(role);
-		ser.addUser("rzonsol","hsdg@df","piotr","rzonsol",roles);
-
-		List<User> users= ser.getUsers();
-		for(User user:users){
-			System.out.println("User id: "+user.getId());
-			System.out.println("User name: "+user.getFirstName());
-
+		List<User> users = ser.getUsers(); //list of all users
+		System.out.println("list of users");
+		for (User e : users){
+			System.out.print("id " + e.getId());
+			System.out.print(", login " + e.getLogin());
+			System.out.print(", email " + e.getEmail());
+			System.out.print(", firstName " + e.getFirstName());
+			System.out.println(", lastName " + e.getLastName());
 		}
 
+		messag.createMessage(2,"test","test");
+		messag.createMessage(2,"test2","test2");
+		messag.createMessage(2,"test3","test3");
 
-		MessageService messageService = (MessageService)ctx.getBean("messageService");
-
-		messageService.createMessage(1,"title","sdhgbfjsdbhfjhsdbjdfhbsh");
-		List<Message> messages = messageService.getMessages();
-
-		for(Message mes : messages){
-			System.out.println("message id: " + mes.getId());
-			System.out.println("message title: "+mes.getTitle());
+		List<Message> messages = messag.getMessagesWithStringInTitle("test2"); //list of all messages
+		System.out.println("list of messages");
+		for (Message e : messages){
+			System.out.print("id " + e.getId());
+			System.out.print(", user_id " + e.getUserId());
+			System.out.print(", title " + e.getTitle());
+			System.out.println(", content " + e.getContent());
 		}
-
-
 	}
 }
 
 
 
+// TODO-rzonsol Check the connection to DB for messages

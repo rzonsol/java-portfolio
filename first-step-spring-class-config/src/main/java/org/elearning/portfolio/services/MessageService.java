@@ -2,8 +2,12 @@ package org.elearning.portfolio.services;
 
 import org.elearning.portfolio.message.Message;
 import org.elearning.portfolio.message.MessageDAO;
+import java.util.List;
+import java.util.ArrayList;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.transaction.annotation.Transactional;
+import org.elearning.portfolio.message.Message;
+import org.elearning.portfolio.message.MessageDAO;
 
 import java.util.List;
 
@@ -33,5 +37,20 @@ public class MessageService{
 
     public List<Message> getMessages(){
         return messageDao.getMessages();
+    }
+
+    public List<Message> getMessagesWithStringInTitle(String lookFor){
+
+        List<Message> messages = messageDao.getMessages();
+        List<Message> messagesWithString = new ArrayList<Message>();
+
+        for (Message e : messages){
+            String title = e.getTitle();
+            if(title.toLowerCase().contains(lookFor.toLowerCase())){
+                messagesWithString.add(e);
+            }
+        }
+
+        return messagesWithString;
     }
 }
