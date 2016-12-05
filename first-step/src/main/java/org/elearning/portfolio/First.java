@@ -26,7 +26,6 @@ public class First {
 
 	public static void main(String[] args) {
 
-
 		context = new ClassPathXmlApplicationContext(
 				"spring-module.xml");
 
@@ -44,7 +43,6 @@ public class First {
 
 		}
 
-
 		MessageService messageService = (MessageService)context.getBean("messageService");
 
 		messageService.createMessage(1,"title","sdhgbfjsdbhfjhsdbjdfhbsh");
@@ -55,5 +53,4 @@ public class First {
 			System.out.println("message title: "+mes.getTitle());
 		}
 	}
-
 }
