@@ -1,5 +1,6 @@
 package org.elearning.portfolio.user;
 
+
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
