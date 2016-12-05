@@ -8,7 +8,7 @@
     <artifactId>first-step-spring-autowired</artifactId>
     <packaging>jar</packaging>
     <name>Fierst Java Project</name>
-  <description>My first project in Java</description>
+  <description>My first project in Java - autowired</description>
   <build>
         <plugins>
             <plugin>
