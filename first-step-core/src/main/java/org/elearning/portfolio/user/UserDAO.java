@@ -12,6 +12,7 @@ public interface UserDAO {
 
      void addUser(String login, String email, String firstName, String lastName, List<Role> roles);
 
+
      void delUser(Integer id);
 
      void addUserRole(Integer userId, Role role);

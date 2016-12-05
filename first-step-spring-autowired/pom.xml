@@ -40,5 +40,11 @@
             <version>4.5</version>
             <scope>test</scope>
         </dependency>
+        <!--my modules-->
+        <dependency>
+            <groupId>org.elearning.portfolio</groupId>
+            <artifactId>first-step-core</artifactId>
+            <version>0.0.1-SNAPSHOT</version>
+        </dependency>
     </dependencies>
 </project>
