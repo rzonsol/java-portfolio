@@ -5,6 +5,7 @@ import org.elearning.portfolio.message.Message;
 import org.elearning.portfolio.user.Role;
 import org.elearning.portfolio.user.User;
 import org.elearning.portfolio.user.UserDAO;
+import org.elearning.portfolio.user.UserDAOCC;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -14,7 +15,7 @@ import java.util.List;
 public class UserService{
 
     @Autowired
-    private  UserDAO userDao  ;
+    private  UserDAOCC userDao  ;
 
 
 

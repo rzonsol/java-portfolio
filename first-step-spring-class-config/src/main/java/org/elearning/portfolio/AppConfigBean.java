@@ -5,6 +5,7 @@ import org.elearning.portfolio.message.MessageDAOImpl;
 import org.elearning.portfolio.services.MessageService;
 import org.elearning.portfolio.services.UserService;
 import org.elearning.portfolio.user.UserDAO;
+import org.elearning.portfolio.user.UserDAOCC;
 import org.elearning.portfolio.user.UserDAOImpl;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
@@ -18,7 +19,7 @@ import org.springframework.context.annotation.Import;
 public class AppConfigBean{
 
     @Bean
-    public UserDAO userDAO(){
+    public UserDAOCC userDAO(){
         return new UserDAOImpl();
     }
     @Bean
