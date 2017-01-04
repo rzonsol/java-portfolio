@@ -16,7 +16,7 @@ import org.elearning.portfolio.message.*;
  * Created by rzonsol on 09.10.2016.
  */
 @Repository
-public class UserDAOImpl implements UserDAO {
+public class UserDAOImpl implements UserDAO, UserDAOA {
 
     private DataSource dataSource;
     private JdbcTemplate jdbcTemplateObject;

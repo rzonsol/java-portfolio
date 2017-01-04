@@ -6,13 +6,11 @@ import org.elearning.portfolio.message.Message;
 import java.util.List;
 
 
-public interface UserDAO {
+public interface UserDAO  {
 
      User getUser(Integer id);
 
      void delUser(Integer id);
-
-     void addUserRole(Integer userId, Role role);
 
      List<Message> getMessagesByUserId(Integer userId);
 

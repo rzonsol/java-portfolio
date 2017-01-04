@@ -10,4 +10,6 @@ public interface UserDAOCC extends UserDAO{
 
      void addUser(String login, String email, String firstName, String lastName, List<Role> roles);
 
+     void addUserRole(Integer userId, Role role);
+
 }
