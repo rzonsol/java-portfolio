@@ -4,9 +4,56 @@
         <groupId>org.elearning.portfolio</groupId>
         <artifactId>first-java-project</artifactId>
         <version>0.0.1-SNAPSHOT</version>
+
     </parent>
     <artifactId>first-web</artifactId>
-    <name>Fierst Web Java Project</name>
+    <name>First Web Java Project</name>
     <description>My first web project in Java</description>
+    <packaging>war</packaging>
+
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <freemarker.version>2.3.23</freemarker.version>
+        <spring.version>4.2.0.RELEASE</spring.version>
+        <servletApi.version>3.1.0</servletApi.version>
+    </properties>
+
+    <dependencies>
+        <!-- javax -->
+        <dependency>
+            <groupId>javax.servlet</groupId>
+            <artifactId>javax.servlet-api</artifactId>
+            <version>${servletApi.version}</version>
+        </dependency>
+
+        <!-- spring -->
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-webmvc</artifactId>
+            <version>${spring.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-core</artifactId>
+            <version>${spring.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-context</artifactId>
+            <version>${spring.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-context-support</artifactId>
+            <version>${spring.version}</version>
+        </dependency>
+
+        <!-- freemarker -->
+        <dependency>
+            <groupId>org.freemarker</groupId>
+            <artifactId>freemarker</artifactId>
+            <version>${freemarker.version}</version>
+        </dependency>
+    </dependencies>
 
 </project>
