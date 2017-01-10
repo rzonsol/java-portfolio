@@ -88,5 +88,11 @@
             <artifactId>javassist</artifactId>
             <version>3.12.1.GA</version>
         </dependency>
+        <!--my modules-->
+        <dependency>
+            <groupId>org.elearning.portfolio</groupId>
+            <artifactId>first-step-core</artifactId>
+            <version>0.0.1-SNAPSHOT</version>
+        </dependency>
     </dependencies>
 </project>

@@ -13,7 +13,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-public class UserDAOImpl implements UserDAO {
+public class UserDAOImpl implements UserDAO, UserDAOCC {
 
     @Autowired
     private SessionFactory sessionFactory;

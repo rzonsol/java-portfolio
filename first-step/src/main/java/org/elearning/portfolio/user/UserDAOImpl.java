@@ -20,7 +20,7 @@ import org.elearning.portfolio.services.MessageService;
  * Created by rzonsol on 09.10.2016.
  */
 
-public class UserDAOImpl implements UserDAO {
+public class UserDAOImpl implements UserDAO, UserDAOFS {
 
     private SessionFactory sessionFactory;
 

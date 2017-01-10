@@ -13,13 +13,13 @@ import org.elearning.portfolio.message.*;
 public class UserService{
 
     @Autowired
-    private  UserDAO user  ;
+    private  UserDAOA user  ;
 
-    public UserService(UserDAO user){
+    public UserService(UserDAOA user){
         this.user = user;
     }
 
-    public void setUser(UserDAO user){this.user = user;}
+    public void setUser(UserDAOA user){this.user = user;}
 
     public User getUser(Integer userId){return user.getUser(userId) ;}
 

@@ -13,5 +13,4 @@ public interface MessageDAO {
      void delMessage(Integer id);
 
      List<Message> getMessages();
-
 }

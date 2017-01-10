@@ -9,9 +9,8 @@ import org.elearning.portfolio.message.*;
 /**
  * Created by rzonsol on 09.10.2016.
  */
-public interface UserDAO {
+public interface UserDAOFS extends UserDAO{
 
-    User getUser(Integer id);
 
     void addUser(String login,String email, String firstName, String lastName, List<Role> roles);
 
@@ -20,8 +19,6 @@ public interface UserDAO {
     void delUser(Integer id);
 
     void addUserRole(Integer userId, Role role);
-
-    List<Message> getMessagesByUserId(Integer userId);
 
     List<User> getUsers();
 

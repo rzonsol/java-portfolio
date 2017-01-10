@@ -1,5 +1,6 @@
 package org.elearning.portfolio.user;
 
+
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -70,4 +71,6 @@ public class User {
 
     public List<Role> getRoles() {return roles;}
     public void setRoles(List<Role> roles) {this.roles = roles;}
+//    for autowired
+public String getFullName(){return this.firstName +" "+ this.lastName;}
 }

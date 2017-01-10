@@ -9,13 +9,13 @@ import org.elearning.portfolio.message.*;
 
 public class UserService{
 
-    private  UserDAO user  ;
+    private  UserDAOFS user  ;
 
-    public UserService(UserDAO user){
+    public UserService(UserDAOFS user){
         this.user = user;
     }
 
-    public void setUser(UserDAO user){this.user = user;}
+    public void setUser(UserDAOFS user){this.user = user;}
 
     public User getUser(Integer userId){return user.getUser(userId) ;}
 

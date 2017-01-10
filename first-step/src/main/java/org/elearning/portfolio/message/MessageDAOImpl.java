@@ -34,6 +34,7 @@ public class MessageDAOImpl implements MessageDAO {
         message.setUserId(userId);
         message.setTitle(title);
         message.setContent(content);
+
         try {
             session = this.sessionFactory.openSession();
             session.beginTransaction();

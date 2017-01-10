@@ -8,7 +8,7 @@
     <artifactId>first-step-spring-autowired</artifactId>
     <packaging>jar</packaging>
     <name>Fierst Java Project</name>
-  <description>My first project in Java</description>
+  <description>My first project in Java - autowired</description>
   <build>
         <plugins>
             <plugin>
@@ -39,6 +39,12 @@
             <artifactId>junit</artifactId>
             <version>4.5</version>
             <scope>test</scope>
+        </dependency>
+        <!--my modules-->
+        <dependency>
+            <groupId>org.elearning.portfolio</groupId>
+            <artifactId>first-step-core</artifactId>
+            <version>0.0.1-SNAPSHOT</version>
         </dependency>
     </dependencies>
 </project>
