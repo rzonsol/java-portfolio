@@ -14,9 +14,24 @@
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <freemarker.version>2.3.23</freemarker.version>
-        <spring.version>4.2.0.RELEASE</spring.version>
+        <spring.version>4.3.3.RELEASE</spring.version>
         <servletApi.version>3.1.0</servletApi.version>
     </properties>
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.flywaydb</groupId>
+                <artifactId>flyway-maven-plugin</artifactId>
+                <version>4.0.3</version>
+                <configuration>
+                    <url>jdbc:h2:file:./target/portfolio-db</url>
+                    <user>sa</user>
+                    <password>sa</password>
+                    <encoding>UTF-8</encoding>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
 
     <dependencies>
         <!-- javax -->
@@ -54,6 +69,28 @@
             <artifactId>freemarker</artifactId>
             <version>${freemarker.version}</version>
         </dependency>
+        <!--my modules-->
+        <dependency>
+            <groupId>org.elearning.portfolio</groupId>
+            <artifactId>first-step-core</artifactId>
+            <version>0.0.1-SNAPSHOT</version>
+        </dependency>
+        <dependency>
+            <groupId>org.elearning.portfolio</groupId>
+            <artifactId>first-step-spring-class-config</artifactId>
+            <version>0.0.1-SNAPSHOT</version>
+        </dependency>
+        <!--hibernate and DB-->
+        <!--<dependency>-->
+            <!--<groupId>org.hibernate</groupId>-->
+            <!--<artifactId>hibernate-core</artifactId>-->
+            <!--<version>4.3.10.Final</version>-->
+        <!--</dependency>-->
+        <!--<dependency>-->
+            <!--<groupId>com.h2database</groupId>-->
+            <!--<artifactId>h2</artifactId>-->
+            <!--<version>1.4.191</version>-->
+        <!--</dependency>-->
     </dependencies>
 
 </project>
