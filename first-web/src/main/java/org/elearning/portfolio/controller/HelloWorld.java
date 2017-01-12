@@ -25,7 +25,6 @@ public class HelloWorld {
         // This can be accessed by ${pageTitle} in the FreeMarker file "hello-world.ftl"
 
         List<User> usersList = userService.getUsers();
-        String login = usersList.get(1).getLogin();
         List<String> userListString = new ArrayList<String>();
         for (User user: usersList) {
             userListString.add(user.getFullName());
