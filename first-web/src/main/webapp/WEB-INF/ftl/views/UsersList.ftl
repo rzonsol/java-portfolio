@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="en">
 <head>
-<#-- this comes from HelloWorld.java, when we added
+<#-- this comes from UsersList.java, when we added
       model.addAttribute("pageTitle", "Example Freemarker Page"); -->
     <title></title>
 </head>

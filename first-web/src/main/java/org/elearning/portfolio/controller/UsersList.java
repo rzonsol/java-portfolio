@@ -14,7 +14,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Controller
-public class HelloWorld {
+public class UsersList {
 
     @Autowired
     UserService userService;
@@ -22,7 +22,7 @@ public class HelloWorld {
     @RequestMapping("/")
     public String loadExample(Model model) {
         // Send the variable "pageTitle" to the view.
-        // This can be accessed by ${pageTitle} in the FreeMarker file "hello-world.ftl"
+        // This can be accessed by ${pageTitle} in the FreeMarker file "UsersList.ftl"
 
         List<User> usersList = userService.getUsers();
         List<String> userListString = new ArrayList<String>();
@@ -34,7 +34,7 @@ public class HelloWorld {
 
 
         // When the user navigates to http://<deploy-url>/<context>/, tell the server to use
-        // `/WEB-INF/ftl/views/hello-world.ftl` to render the view
-        return "hello-world";
+        // `/WEB-INF/ftl/views/UsersList.ftl` to render the view
+        return "UsersList";
     }
 }
