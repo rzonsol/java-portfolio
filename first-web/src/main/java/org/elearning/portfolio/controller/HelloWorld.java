@@ -29,7 +29,7 @@ public class HelloWorld {
         for (User user: usersList) {
             userListString.add(user.getFullName());
         }
-        model.addAttribute("userListString", userListString);
+        model.addAttribute("userListString", usersList);
 
 
 

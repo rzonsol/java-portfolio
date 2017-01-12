@@ -11,7 +11,7 @@
     <#list userListString>
         <ul>
             <#items as user>
-                <li>${user}</li>
+                <li>${user.firstName} ${user.lastName}</li>
             </#items>
         </ul>
     </#list>
