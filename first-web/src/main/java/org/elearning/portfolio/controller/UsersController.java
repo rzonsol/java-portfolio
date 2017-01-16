@@ -4,26 +4,26 @@ package org.elearning.portfolio.controller;
  * Created by rzonsol on 10.01.2017.
  */
 import org.elearning.portfolio.services.UserService;
+import org.elearning.portfolio.user.Role;
 import org.elearning.portfolio.user.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 
 import java.util.ArrayList;
 import java.util.List;
 
 @Controller
-public class UsersList {
+public class UsersController {
 
     @Autowired
     UserService userService;
 
     @RequestMapping("/")
-    public String loadExample(Model model) {
-        // Send the variable "pageTitle" to the view.
-        // This can be accessed by ${pageTitle} in the FreeMarker file "UsersList.ftl"
-
+    public String userList(Model model) {
         List<User> usersList = userService.getUsers();
         List<String> userListString = new ArrayList<String>();
         for (User user: usersList) {
@@ -31,10 +31,16 @@ public class UsersList {
         }
         model.addAttribute("userListString", usersList);
 
-
-
-        // When the user navigates to http://<deploy-url>/<context>/, tell the server to use
-        // `/WEB-INF/ftl/views/UsersList.ftl` to render the view
         return "UsersList";
+    }
+
+
+    @RequestMapping(method = RequestMethod.GET, value = "/userDetails/{id}")
+    public String userDetails(Model model, @PathVariable Integer id) {
+        User user = userService.getUser(id);
+        List<Role> roles = userService.getUserRoles(id);
+        model.addAttribute("user", user);
+        model.addAttribute("roles",roles);
+        return "UserDetails";
     }
 }

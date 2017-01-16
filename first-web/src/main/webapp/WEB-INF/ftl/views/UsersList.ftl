@@ -11,7 +11,7 @@
     <#list userListString>
         <ul>
             <#items as user>
-                <li>${user.firstName} ${user.lastName}</li>
+                <li><a href="/userDetails/${user.id}"> ${user.firstName} ${user.lastName}</a></li>
             </#items>
         </ul>
     </#list>
