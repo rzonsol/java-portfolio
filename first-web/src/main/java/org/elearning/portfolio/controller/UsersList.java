@@ -37,8 +37,6 @@ public class UsersList {
     public String addUser(@ModelAttribute("user") User user,Model model){
         String message = "";
         String hide="hide";
-//        userService.addUser("piotr","piotr@sddf","piotr","rzonsol",null);
-        System.out.println(user.getFirstName());
         if (null != user && null != user.getFirstName()
                 && null != user.getLastName()) {
             userService.addUser(user.getLogin(),user.getEmail(),user.getFirstName(),user.getLastName(),null);

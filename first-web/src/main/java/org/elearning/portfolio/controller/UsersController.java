@@ -27,19 +27,6 @@ public class UsersController {
     @Autowired
     MessageService messageService;
 
-    @RequestMapping("/")
-    public String userList(Model model) {
-        List<User> usersList = userService.getUsers();
-        List<String> userListString = new ArrayList<String>();
-        for (User user: usersList) {
-            userListString.add(user.getFullName());
-        }
-        model.addAttribute("userListString", usersList);
-
-        return "UsersList";
-    }
-
-
     @RequestMapping(method = RequestMethod.GET, value = "/userDetails/{id}")
     public String userDetails(Model model, @PathVariable Integer id) {
         User user = userService.getUser(id);

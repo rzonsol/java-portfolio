@@ -1,11 +1,9 @@
 <!doctype html>
 <html lang="en">
 <head>
-    <#-- this comes from UsersList.java, when we added
-            model.addAttribute("pageTitle", "Example Freemarker Page"); -->
     <title></title>
     </head>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 
     <style>
         body{
@@ -15,8 +13,9 @@
         }
     </style>
 <body>
-    <div class="example-page">
-        <h1>test</h1>
+    <#include "Nav.ftl">
+    <div >
+        <h1>User</h1>
         <ul>
             <li>Id: ${user.id}</li>
             <li>First Name: ${user.firstName}</li>
