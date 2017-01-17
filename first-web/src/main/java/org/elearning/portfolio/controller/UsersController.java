@@ -3,6 +3,8 @@ package org.elearning.portfolio.controller;
 /**
  * Created by rzonsol on 10.01.2017.
  */
+import org.elearning.portfolio.message.Message;
+import org.elearning.portfolio.services.MessageService;
 import org.elearning.portfolio.services.UserService;
 import org.elearning.portfolio.user.Role;
 import org.elearning.portfolio.user.User;
@@ -22,6 +24,9 @@ public class UsersController {
     @Autowired
     UserService userService;
 
+    @Autowired
+    MessageService messageService;
+
     @RequestMapping("/")
     public String userList(Model model) {
         List<User> usersList = userService.getUsers();
@@ -39,8 +44,10 @@ public class UsersController {
     public String userDetails(Model model, @PathVariable Integer id) {
         User user = userService.getUser(id);
         List<Role> roles = userService.getUserRoles(id);
+        List<Message> messageList = messageService.getUserMessages(id);
         model.addAttribute("user", user);
         model.addAttribute("roles",roles);
+        model.addAttribute("messages", messageList);
         return "UserDetails";
     }
 }
