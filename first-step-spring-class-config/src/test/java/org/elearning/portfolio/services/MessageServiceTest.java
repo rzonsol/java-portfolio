@@ -2,6 +2,8 @@ package org.elearning.portfolio.services;
 
 import java.util.List;
 import java.util.ArrayList;
+
+import org.elearning.portfolio.message.MessageDAOCC;
 import org.mockito.Mock;
 import org.mockito.InjectMocks;
 import org.junit.Test;
@@ -24,7 +26,7 @@ import org.elearning.portfolio.message.MessageDAO;
 public class MessageServiceTest{
 
     @Mock
-    private MessageDAO messageDao;
+    private MessageDAOCC messageDao;
 
 
     @InjectMocks

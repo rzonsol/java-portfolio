@@ -1,13 +1,13 @@
 package org.elearning.portfolio.services;
 
-import org.elearning.portfolio.message.Message;
-import org.elearning.portfolio.message.MessageDAO;
+import org.elearning.portfolio.message.*;
+
 import java.util.List;
 import java.util.ArrayList;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.transaction.annotation.Transactional;
 import org.elearning.portfolio.message.Message;
-import org.elearning.portfolio.message.MessageDAO;
+import org.elearning.portfolio.message.MessageDAOCC;
 
 import java.util.List;
 
@@ -15,7 +15,7 @@ import java.util.List;
 public class MessageService{
 
     @Autowired
-    private MessageDAO messageDao;
+    private MessageDAOCC messageDao;
 
     public MessageService(){
         this.messageDao= messageDao;
@@ -30,6 +30,8 @@ public class MessageService{
     public void delMessage(Integer id){
         messageDao.delMessage(id);
     }
+
+    public void deleteAllUserMessages(Integer userId){messageDao.deleteAllUserMessages(userId);}
 
     public Integer countMessages(Integer userId){
         return messageDao.getUserMessages(userId).size();

@@ -103,6 +103,23 @@ public class UserDAOImpl implements UserDAO, UserDAOCC {
         return;
     }
 
+    public void clearUserRole(Integer userId){
+        Session session = getSession();
+        User user = getUser(userId);
+        user.setRoles(null);
+        session.update(user);
+        return;
+    }
+
+    public void updateUser(User user){
+        Session session = getSession();
+
+        if(checkUser(user.getId())){
+            session.update(user);
+        }
+       return;
+    }
+
     public List<User> getUsers() {
 
         Session session = getSession();

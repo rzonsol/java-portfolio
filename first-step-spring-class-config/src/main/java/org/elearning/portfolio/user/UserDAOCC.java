@@ -12,4 +12,8 @@ public interface UserDAOCC extends UserDAO{
 
      void addUserRole(Integer userId, Role role);
 
+     void clearUserRole(Integer userId);
+
+     void updateUser(User user);
+
 }

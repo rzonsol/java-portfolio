@@ -71,6 +71,19 @@ public class User {
 
     public List<Role> getRoles() {return roles;}
     public void setRoles(List<Role> roles) {this.roles = roles;}
-//    for autowired
+    public String getRolesToString(){
+        String stringRoles="";
+        Integer i=0;
+        for (Role role:this.roles) {
+            if (i!=0){
+                stringRoles+=(","+role.getRoleName());
+            }else{
+                stringRoles+=role.getRoleName();
+                i++;
+            }
+        }
+        return stringRoles;
+    }
+
 public String getFullName(){return this.firstName +" "+ this.lastName;}
 }

@@ -12,7 +12,7 @@ import java.util.List;
 
 
 
-public class MessageDAOImpl implements MessageDAO {
+public class MessageDAOImpl implements MessageDAO, MessageDAOCC {
 
     @Autowired
     private SessionFactory sessionFactory;
@@ -60,11 +60,18 @@ public class MessageDAOImpl implements MessageDAO {
             Message message = new Message();
             message.setId(id);
             Session session = getSession();
+            session.clear();
             session.delete(message);
         }
         return;
     }
 
+    public void deleteAllUserMessages(Integer userId){
+        List<Message> messageList = getUserMessages(userId);
+        for(Message message:messageList){
+            delMessage(message.getId());
+        }
+    }
     public List<Message> getMessages(){
 
         Session session = getSession();

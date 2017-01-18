@@ -1,6 +1,7 @@
 package org.elearning.portfolio;
 
 import org.elearning.portfolio.message.MessageDAO;
+import org.elearning.portfolio.message.MessageDAOCC;
 import org.elearning.portfolio.message.MessageDAOImpl;
 import org.elearning.portfolio.services.MessageService;
 import org.elearning.portfolio.services.UserService;
@@ -27,7 +28,7 @@ public class AppConfigBean{
         return new UserService();
     }
     @Bean
-    public MessageDAO messageDAO(){
+    public MessageDAOCC messageDAO(){
         return new MessageDAOImpl();
     }
     @Bean
