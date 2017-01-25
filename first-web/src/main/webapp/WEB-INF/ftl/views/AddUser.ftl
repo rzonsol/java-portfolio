@@ -20,7 +20,7 @@
             <h3 class="alert alert-success" >${message}</h3>
         </div>
 
-        <form name="user" action="addUser" method="POST">
+        <form name="user" action="/users/add" method="POST">
             <div class="form-group">
                 <label for="firstName">First Name</label>
                 <input type="text" class="form-control" name="firstName" placeholder="First Name">

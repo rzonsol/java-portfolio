@@ -42,7 +42,7 @@
             </ul>
         </#list>
     </div>
-    <form action="/editUserDetails/${user.id}" method="get">
+    <form action="/users/${user.id}/edit" method="get">
         <button type="submit" class="btn btn-primary error" value="Edit">Edit</button>
     </form>
 </body>

@@ -20,7 +20,7 @@
     <h3 class="alert alert-success" >${message}</h3>
 </div>
 
-<form action="/saveUserDetail/${user.id}" method="POST" name="user">
+<form action="/users/${user.id}" method="POST" name="user">
     <div class="form-group">
         <label for="firstName">First Name</label>
         <input type="text" class="form-control" name="firstName" value="${user.firstName}">
@@ -41,7 +41,7 @@
 </form>
 
 <h2>Change roles</h2>
-<form action="/saveRoles/${user.id}" method="POST">
+<form action="/users/${user.id}/role" method="POST">
     <div class="form-group" >
         <label for="roles">Roles</label>
         <input type="text" class="form-control" name="roles" value="${roles}">
@@ -50,7 +50,7 @@
 </form>
 
 <h2>Change roles</h2>
-<form action="/deleteUser/${user.id}" method="get">
+<form action="/users/${user.id}/delete" method="get">
     <button type="submit" class="btn btn-danger">Delete</button>
 </form>
 </body>

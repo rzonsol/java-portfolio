@@ -123,8 +123,9 @@ public class UserDAOImpl implements UserDAO, UserDAOCC {
     public List<User> getUsers() {
 
         Session session = getSession();
+        session.clear();
         Criteria criteria = session.createCriteria(User.class);
-        return (List<User>) criteria.list();
+        return (List<User>) criteria.list() ;
     }
 
     public List<Role> getUserRoles(Integer userId){
